@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,366 +7,100 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 /* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
-  padding: 20px;
-}
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a;padding:20px;}
 
 /* ================= HEADER ================= */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: #ff7400;
-  color: #000;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 2rem;background:#ff7400;color:#000;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 3px 10px rgba(0,0,0,0.15);
 }
-
-.header-left {
-  display: flex;
-  align-items: center;
+.header-left{display:flex;align-items:center;}
+header .logo{
+  width:80px;height:80px;padding:10px;border-radius:14px;
+  background:rgba(255,255,255,0.18);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s ease,box-shadow .3s ease;
 }
-
-/* Logo */
-header .logo {
-  width: 80px;
-  height: 80px;
-  padding: 10px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-header .logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-
-header .logo img {
-  max-width: 85%;
-  max-height: 85%;
-  object-fit: contain;
-  display: block;
-}
-
-header .brand {
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-left: 1rem;
-  white-space: nowrap;
-}
-
-header .menu-btn {
-  font-size: 1.8rem;
-  background: none;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: transform .2s ease;
-}
-
-header .menu-btn:hover {
-  transform: scale(1.15);
-}
-
-/* Responsive Header */
-@media (max-width: 768px) {
-  header {
-    padding: 0.8rem 1rem;
-  }
-
-  header .logo {
-    width: 60px;
-    height: 60px;
-    padding: 8px;
-  }
-
-  header .brand {
-    font-size: 1.1rem;
-  }
-
-  header .menu-btn {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header .logo {
-    width: 48px;
-    height: 48px;
-    padding: 6px;
-  }
-
-  header .brand {
-    font-size: 1rem;
-  }
-}
+header .logo:hover{transform:scale(1.05);box-shadow:0 6px 18px rgba(0,0,0,0.25);}
+header .logo img{max-width:85%;max-height:85%;object-fit:contain;display:block;}
+header .brand{font-weight:700;font-size:1.4rem;margin-left:1rem;white-space:nowrap;}
+header .menu-btn{font-size:1.8rem;background:none;color:#fff;border:none;cursor:pointer;transition:transform .2s ease;}
+header .menu-btn:hover{transform:scale(1.15);}
 
 /* ================= SIDEBAR ================= */
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -280px;
-  width: 280px;
-  height: 100vh;
-  background: #0a102e;
-  color: #e5e7eb;
-  padding: 2rem;
-  transition: right .35s ease;
-  z-index: 101;
-}
+.sidebar{position:fixed;top:0;right:-280px;width:280px;height:100vh;background:#0a102e;color:#e5e7eb;padding:2rem;transition:right .35s ease;z-index:101;}
+.sidebar.active{right:0;}
+.sidebar a{display:block;padding:.75rem 0;font-weight:600;color:#cbd5f5;text-decoration:none;}
+.sidebar a:hover{color:#fff;}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:100;}
+.overlay.active{display:block;}
 
-.sidebar.active {
-  right: 0;
+/* ================= SLIDESHOW ================= */
+.slideshow-container{position:relative;max-width:1000px;margin:2rem auto;overflow:hidden;border-radius:12px;}
+.slide{display:none;width:100%;border-radius:12px;}
+.prev,.next{
+  cursor:pointer;position:absolute;top:50%;width:auto;padding:1rem;margin-top:-22px;color:white;font-weight:bold;font-size:1.5rem;
+  border-radius:0 3px 3px 0;user-select:none;background:rgba(0,0,0,0.3);transition:background .2s ease;
 }
-
-.sidebar a {
-  display: block;
-  padding: .75rem 0;
-  font-weight: 600;
-  color: #cbd5f5;
-  text-decoration: none;
-}
-
-.sidebar a:hover {
-  color: #fff;
-}
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  display: none;
-  z-index: 100;
-}
-
-.overlay.active {
-  display: block;
-}
+.next{right:0;border-radius:3px 0 0 3px;}
+.prev:hover,.next:hover{background:rgba(0,0,0,0.6);}
 
 /* ================= SECTIONS ================= */
-section {
-  padding: 3rem 2rem;
-  max-width: 1000px;
-  margin: auto;
-}
-
-h1, h2, h3 {
-  margin-bottom: 1rem;
-}
-
-.grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.card {
-  background: #fff;
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 1rem;
-  margin-bottom: .5rem;
-}
+section{padding:3rem 2rem;max-width:1000px;margin:auto;}
+h1,h2,h3{margin-bottom:1rem;}
+.grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+.card{background:#fff;border-radius:1rem;padding:1rem;box-shadow:0 8px 20px rgba(0,0,0,.1);}
+.card img{width:100%;border-radius:1rem;margin-bottom:.5rem;}
 
 /* ================= ACCESSORIES ================= */
-.accessories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  margin-top: 32px;
-  align-items: start;
-  justify-items: center;
-}
-
-.accessory-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  text-align: center;
-  min-width: 150px;
-  max-width: 190px;
-  width: 100%;
-  transition: box-shadow .25s ease, transform .25s ease;
-}
-
-.accessory-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;
-}
-
-/* Hover: image zoom */
-.accessory-card:hover img {
-  transform: scale(1.08);
-}
-
-.accessory-card:hover {
-  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-}
-
-.accessory-card h3 {
-  font-size: .95rem;
-}
-
-.accessory-card p {
-  font-size: .8rem;
-  color: #555;
-}
+.accessories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;margin-top:32px;align-items:start;justify-items:center;}
+.accessory-card{background:#fff;border-radius:10px;padding:12px;border:1px solid #e5e7eb;text-align:center;min-width:150px;max-width:190px;width:100%;transition:box-shadow .25s ease,transform .25s ease;}
+.accessory-card img{width:100px;height:100px;object-fit:contain;margin-bottom:10px;transition:transform .3s ease;}
+.accessory-card:hover img{transform:scale(1.08);}
+.accessory-card:hover{box-shadow:0 8px 18px rgba(0,0,0,0.18);}
+.accessory-card h3{font-size:.95rem;}
+.accessory-card p{font-size:.8rem;color:#555;}
 
 /* ================= BRAND SLIDER ================= */
-.brand-slider-wrapper {
-  position: relative;
-  max-width: 1000px;
-  margin: 2rem auto;
-  display: flex;
-  align-items: center;
+.brand-slider-wrapper{position:relative;max-width:1000px;margin:2rem auto;display:flex;align-items:center;justify-content:center;}
+.brand-slideshow-container{overflow:hidden;width:100%;}
+.brand-slide{display:flex;gap:20px;min-width:100%;justify-content:center;transition:transform 0.6s ease;}
+.brand-nav{
+  background:rgba(0,0,0,0.5);color:#fff;border:none;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.5rem;
+  display:flex;align-items:center;justify-content:center;transition:background .3s ease,transform .2s ease;
 }
-
-.brand-slideshow-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.brand-slide {
-  display: flex;
-  gap: 20px;
-  min-width: 100%;
-  justify-content: center;
-  transition: transform 0.6s ease;
-}
-
-/* Navigation arrows */
-.brand-nav {
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.brand-nav:hover {
-  background: rgba(0,0,0,0.75);
-  transform: scale(1.1);
-}
-
-.brand-nav.prev {
-  margin-right: 10px;
-}
-
-.brand-nav.next {
-  margin-left: 10px;
-}
+.brand-nav:hover{background:rgba(0,0,0,0.75);transform:scale(1.1);}
+.brand-nav.prev{margin-right:10px;}
+.brand-nav.next{margin-left:10px;}
 
 /* ================= FOOTER ================= */
-.site-footer {
-  background: #ff7400;
-  color: #fff;
-  padding: 2rem;
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-}
-
-.footer-block h4 {
-  margin-bottom: .5rem;
-}
-
-.footer-bottom {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: .9rem;
-}
+.site-footer{background:#ff7400;color:#fff;padding:2rem;}
+.footer-container{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;}
+.footer-block h4{margin-bottom:.5rem;}
+.footer-bottom{margin-top:1rem;text-align:center;font-size:.9rem;}
 
 /* ================= FORMS & BUTTONS ================= */
-input, textarea {
-  width: 100%;
-  padding: .8rem 1rem;
-  border-radius: 1rem;
-  border: 1px solid #e2e8f0;
-  margin-bottom: .6rem;
-}
+input,textarea{width:100%;padding:.8rem 1rem;border-radius:1rem;border:1px solid #e2e8f0;margin-bottom:.6rem;}
+input:focus,textarea:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.25);}
+button.submit-btn{padding:.8rem 1.5rem;border-radius:1rem;border:none;background:#6366f1;color:#fff;cursor:pointer;}
+button.submit-btn:hover{background:#0ea5e9;}
 
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99,102,241,.25);
-}
-
-button.submit-btn {
-  padding: .8rem 1.5rem;
-  border-radius: 1rem;
-  border: none;
-  background: #6366f1;
-  color: #fff;
-  cursor: pointer;
-}
-
-button.submit-btn:hover {
-  background: #0ea5e9;
-}
-
-/* ================= MOBILE TUNING ================= */
-@media (max-width: 480px) {
-  .accessories-grid {
-    gap: 14px;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
-
-  .accessory-card img {
-    width: 90px;
-    height: 90px;
-  }
-
-  .brand-nav {
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
-  }
-}
-
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){header{padding:.8rem 1rem;}header .logo{width:60px;height:60px;padding:8px;}header .brand{font-size:1.1rem;}header .menu-btn{font-size:1.5rem;}}
+@media(max-width:480px){header .logo{width:48px;height:48px;padding:6px;}header .brand{font-size:1rem;}.accessories-grid{gap:14px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}.accessory-card img{width:90px;height:90px;}.brand-nav{width:36px;height:36px;font-size:1.2rem;}}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-  <div class="logo"> <img src="images/logogeocomp.png" alt=""></div>
-  <div class="brand">GEOCOMP SYSTEMS Limited</div>
+  <div class="header-left">
+    <div class="logo"><img src="images/logogeocomp.png" alt="Logo"></div>
+    <div class="brand">GEOCOMP SYSTEMS Limited</div>
+  </div>
   <button class="menu-btn" onclick="toggleSidebar()">☰</button>
 </header>
 
@@ -377,351 +111,131 @@ button.submit-btn:hover {
   <a href="#compressors" onclick="toggleSidebar()">Air Compressors</a>
   <a href="#dryer" onclick="toggleSidebar()">Air Dryer</a>
   <a href="#filtration" onclick="toggleSidebar()">Filtration</a>
-  <a href="#maintenance" onclick="toggleSidebar()">Inspection & Maintenance</a>
+  <a href="#maintenance" onclick="toggleSidebar()">Installation & Maintenance</a>
   <a href="#contact" onclick="toggleSidebar()">Contact Us</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-<!-- SLIDESHOW -->
+<!-- MAIN SLIDESHOW -->
 <div class="slideshow-container">
   <img class="slide" src="roll1.jpg" alt="Slide 1">
   <img class="slide" src="roll2.jpg" alt="Slide 2">
-  <img class="slide" src="roll4.jpg" alt="Slide 3">
-  
-  <img class="slide" src="roll5.jpg" alt="Slide 1">
-  <img class="slide" src="roll6.jpg" alt="Slide 2">
-  <img class="slide" src="roll7.jpg" alt="Slide 3">
-  
-  <img class="slide" src="roll8.jpg" alt="Slide 1">
-  <img class="slide" src="roll9.png" alt="Slide 2">
+  <img class="slide" src="roll3.jpg" alt="Slide 3">
   <a class="prev" onclick="changeSlide(-1)">❮</a>
   <a class="next" onclick="changeSlide(1)">❯</a>
 </div>
 
 <!-- MAIN CONTENT -->
 <main>
-
-<section id="home">
-  <h1>Complete Compressed Air Ecosystem</h1>
-  <p>Industrial compressed air solutions across Kenya.</p>
-</section>
-
-<section id="about">
-  <h2>Our Story</h2>
-  <p>
-    Geocomp systems Ltd was started in 2007 in Nairobi, Kenya as a sole proprietorship.
-    It later became a partnership and now a private limited company. Geocomp has flourished under its two directors: one technical, one managing business & marketing.
-  </p>
-</section>
+<section id="home"><h1>Complete Compressed Air Ecosystem</h1><p>Industrial compressed air solutions across Kenya.</p></section>
+<section id="about"><h2>Our Story</h2><p>Geocomp Systems Ltd started in 2007 in Nairobi, Kenya. Now a private limited company with 15+ years of experience in sales, installation, service, maintenance, spare parts, and accessories.</p></section>
 
 <section id="offers">
-  <h2>Receive Special Offers</h2>
-  <p>Sign up to receive our special offers direct to your inbox.</p>
-  <form>
-    <input type="email" placeholder="Enter your e-mail address">
-    <button type="submit" class="submit-btn">Subscribe</button>
-  </form>
-</section>
-
-<section id="emergency">
-  <h2>24 Hour Emergency Service</h2>
-  <p>We provide 24 hour Emergency Service 365 days a year. Call us: 0738 010 275</p>
-</section>
-
-<section id="experience">
-  <h2>15 Years Experience</h2>
-  <p>Over fifteen years’ experience in the compressed air industry in Kenya. Sales, installation, service, maintenance, spare parts, and accessories.</p>
+<h2>Receive Special Offers</h2>
+<p>Sign up to receive our special offers direct to your inbox.</p>
+<form>
+<input type="email" placeholder="Enter your e-mail address">
+<button type="submit" class="submit-btn">Subscribe</button>
+</form>
 </section>
 
 <section id="services">
-  <h2>Our Services</h2>
-  <div class="grid">
-    <div class="card" id="compressors">
-  
-      <h3>Air Compressors</h3>
-      <p>Oil injection, portable, oil free, and lubricated compressors.</p>
-    </div>
-    <div class="card" id="dryer">
-     
-      <h3>Air Dryers</h3>
-      <p>Refrigerated air dryers remove moisture and contaminants from compressed air.</p>
-    </div>
-    <div class="card" id="filtration">
-     
-      <h3>Filtration</h3>
-      <p>Air filters, oil/water separators, housings, and elements for compressed air protection.</p>
-    </div>
-    <div class="card" id="maintenance">
-  
-      <h3>Installation & Maintenance</h3>
-      <p>Efficient, cost-effective installation, repair, and maintenance services.</p>
-    </div>
-  </div>
+<h2>Our Services</h2>
+<div class="grid">
+<div class="card" id="compressors"><h3>Air Compressors</h3><p>Oil injection, portable, oil free, and lubricated compressors.</p></div>
+<div class="card" id="dryer"><h3>Air Dryers</h3><p>Refrigerated air dryers remove moisture and contaminants from compressed air.</p></div>
+<div class="card" id="filtration"><h3>Filtration</h3><p>Air filters, oil/water separators, housings, and elements for compressed air protection.</p></div>
+<div class="card" id="maintenance"><h3>Installation & Maintenance</h3><p>Efficient, cost-effective installation, repair, and maintenance services.</p></div>
+</div>
 </section>
+
 <section id="accessories">
-  <h2>Accessories & Spare Parts</h2>
-  <p>High-quality spare parts for all compressed air technologies.</p>
-
-  <div class="accessories-grid">
-    <!-- Product cards -->
-     
-    <div class="accessory-card">
-      <img src="dry.jpg" alt="Product 3">
-    </div>
-    <!-- Repeat up to 20 -->
-    <div class="accessory-card">
-      <img src="dr.jpg" alt="Product 4">
-    </div>
-    <div class="accessory-card">
-      <img src="DSC_0052.jpg" alt="Product 1">
-    </div>
-    <div class="accessory-card">
-      <img src="DSC_0035.jpg" alt="Product 2">
-    </div>
-
-<div class="accessory-card">
-      <img src="DSC_0088.jpg" alt="Product 1">
-    </div>
-    <div class="accessory-card">
-      <img src="DSC_0091.jpg" alt="Product 2">
-    </div>
-    <div class="accessory-card">
-      <img src="DSC_0092.jpg" alt="Product 3">
-    </div>
-
-    
-    <div class="accessory-card">
-      <img src="DSC_0108.jpg" alt="Product 3">
-    </div>
-    <!-- Repeat up to 20 -->
-    <div class="accessory-card">
-      <img src="DSC_0109.jpg" alt="Product 4">
-    </div>
-    <!-- Repeat up to 20 -->
-    <div class="accessory-card">
-      <img src="DSC_0115.jpg" alt="Product 4">
-    </div>
-
-    
-    <div class="accessory-card">
-      <img src="DSC_0116.jpg" alt="Product 3">
-    </div>
-    <!-- Repeat up to 20 -->
-    <div class="accessory-card">
-      <img src="DSC_0127.jpg" alt="Product 4">
-    </div>
-
-    
-    <div class="accessory-card">
-      <img src="DSC_0135.jpg" alt="Product 3">
-    </div>
-    <!-- Repeat up to 20 -->
-    <div class="accessory-card">
-      <img src="air comressor.jpg" alt="Product 4">
-    </div>
-    
-    
-    <div class="accessory-card">
-      <img src="airdryer.png" alt="Product 3">
-    </div>
-    <!-- Repeat up to 20 -->
-    <div class="accessory-card">
-      <img src="Air-Compressor.jpg" alt="Product 4">
-    </div>
-    <!-- ... keep adding until product20.jpg -->
-  </div>
+<h2>Accessories & Spare Parts</h2>
+<p>High-quality spare parts for all compressed air technologies.</p>
+<div class="accessories-grid">
+  <!-- Sample accessory cards -->
+  <div class="accessory-card"><img src="dry.jpg" alt="Dryer"><h3>Dryer</h3></div>
+  <div class="accessory-card"><img src="dr.jpg" alt="Filter"><h3>Filter</h3></div>
+  <div class="accessory-card"><img src="DSC_0052.jpg" alt="Part"><h3>Part A</h3></div>
+  <div class="accessory-card"><img src="DSC_0035.jpg" alt="Part"><h3>Part B</h3></div>
+  <!-- Repeat as needed -->
+</div>
 </section>
 
 <section id="brands">
-  <h2>Our Partners & Brands</h2>
-  <p>We work with top global brands in compressed air technology.</p>
-
-  <div class="brand-slider-wrapper">
-    <!-- Left Arrow -->
-    <button class="brand-nav prev" onclick="moveBrandSlide(-1)">&#10094;</button>
-
-    <!-- Slider -->
-    <div class="brand-slideshow-container">
-      <div class="brand-slide">
-        <div class="accessory-card">
-          <img src="abac_logo_tcm1159-633155.gif" alt="Abac">
-          <h3>Abac</h3>
-        </div>
-        <div class="accessory-card">
-          <img src="bauer-logo.jpg" alt="Bauer">
-          <h3>Bauer</h3>
-        </div>
-        <div class="accessory-card">
-          <img src="atlascopco.gif" alt="Atlas Copco">
-          <h3>Atlas Copco</h3>
-        </div>
-      </div>
-
-      <div class="brand-slide">
-        <div class="accessory-card">
-          <img src="denair.jpg" alt="Denair">
-          <h3>Denair</h3>
-        </div>
-        <div class="accessory-card">
-          <img src="elgilogo.png" alt="Elgi">
-          <h3>Elgi</h3>
-        </div>
-        <div class="accessory-card">
-          <img src="compairlogo.png" alt="Compair">
-          <h3>Compair</h3>
-        </div>
-      </div>
-
-      <div class="brand-slide">
-        <div class="accessory-card">
-          <img src="Gardner-Denver-good-logo-1024x393.jpg" alt="Gardner Denver">
-          <h3>Gardner Denver</h3>
-        </div>
-        <div class="accessory-card">
-          <img src="tranelogo.png" alt="Trane">
-          <h3>Trane</h3>
-        </div>
-        <div class="accessory-card">
-          <img src="quincylogo.png" alt="Quincy">
-          <h3>Quincy</h3>
-        </div>
-      </div>
+<h2>Our Partners & Brands</h2>
+<p>We work with top global brands in compressed air technology.</p>
+<div class="brand-slider-wrapper">
+  <button class="brand-nav prev" onclick="moveBrandSlide(-1)">&#10094;</button>
+  <div class="brand-slideshow-container">
+    <div class="brand-slide">
+      <div class="accessory-card"><img src="abac_logo_tcm1159-633155.gif" alt="Abac"><h3>Abac</h3></div>
+      <div class="accessory-card"><img src="bauer-logo.jpg" alt="Bauer"><h3>Bauer</h3></div>
+      <div class="accessory-card"><img src="atlascopco.gif" alt="Atlas Copco"><h3>Atlas Copco</h3></div>
     </div>
-
-    <!-- Right Arrow -->
-    <button class="brand-nav next" onclick="moveBrandSlide(1)">&#10095;</button>
+    <div class="brand-slide">
+      <div class="accessory-card"><img src="denair.jpg" alt="Denair"><h3>Denair</h3></div>
+      <div class="accessory-card"><img src="elgilogo.png" alt="Elgi"><h3>Elgi</h3></div>
+      <div class="accessory-card"><img src="compairlogo.png" alt="Compair"><h3>Compair</h3></div>
+    </div>
+    <div class="brand-slide">
+      <div class="accessory-card"><img src="Gardner-Denver-good-logo-1024x393.jpg" alt="Gardner Denver"><h3>Gardner Denver</h3></div>
+      <div class="accessory-card"><img src="tranelogo.png" alt="Trane"><h3>Trane</h3></div>
+      <div class="accessory-card"><img src="quincylogo.png" alt="Quincy"><h3>Quincy</h3></div>
+    </div>
   </div>
+  <button class="brand-nav next" onclick="moveBrandSlide(1)">&#10095;</button>
+</div>
 </section>
-
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-block">
-      <h4>MOBILE</h4>
-      <p>0738 010 275</p>
-      <p>Tel: 020 356 9848</p>
-    </div>
-    <div class="footer-block">
-      <h4>Email</h4>
-      <p>info@geocompsystems.co.ke</p>
-      <p>geocompsystemsltd@gmail.com</p>
-    </div>
-    <div class="footer-block">
-      <h4>Physical Location</h4>
-      <p>
-        New Commercial House, Ground Floor,<br>
-        Next to Unilever E.A Ltd,<br>
-        Along Enterprise Rd Industrial Area,<br>
-        Nairobi, Kenya
-      </p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    © 2026 Geocomp Systems Ltd. All Rights Reserved.
-  </div>
+<div class="footer-container">
+<div class="footer-block"><h4>MOBILE</h4><p>0738 010 275</p><p>Tel: 020 356 9848</p></div>
+<div class="footer-block"><h4>Email</h4><p>info@geocompsystems.co.ke</p><p>geocompsystemsltd@gmail.com</p></div>
+<div class="footer-block"><h4>Physical Location</h4><p>New Commercial House, Ground Floor,<br>Next to Unilever E.A Ltd,<br>Along Enterprise Rd Industrial Area,<br>Nairobi, Kenya</p></div>
+</div>
+<div class="footer-bottom">© 2026 Geocomp Systems Ltd. All Rights Reserved.</div>
 </footer>
-<!-- ===== JS ===== -->
+
+<!-- ================= JS ================= -->
 <script>
-/* ===== Sidebar Toggle ===== */
-function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
-  sidebar.classList.toggle('active');
-  overlay.classList.toggle('active');
+// Sidebar toggle
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('active');
+  document.getElementById('overlay').classList.toggle('active');
 }
 
-/* ===== Slideshow ===== */
+// Main slideshow
 let slideIndex = 0;
 const slides = document.getElementsByClassName("slide");
-
-// Show a specific slide
-function showSlide(n) {
-  if (!slides.length) return; // safety check
-  if (n >= slides.length) slideIndex = 0;
-  if (n < 0) slideIndex = slides.length - 1;
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex].style.display = "block";
+function showSlide(n){
+  if(!slides.length) return;
+  if(n>=slides.length) slideIndex=0;
+  if(n<0) slideIndex=slides.length-1;
+  for(let i=0;i<slides.length;i++){slides[i].style.display="none";}
+  slides[slideIndex].style.display="block";
 }
+function changeSlide(n){slideIndex+=n;showSlide(slideIndex);}
+function autoSlides(){slideIndex++;showSlide(slideIndex);setTimeout(autoSlides,4000);}
+showSlide(slideIndex);autoSlides();
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")changeSlide(1);if(e.key==="ArrowLeft")changeSlide(-1);});
 
-// Change slide manually
-function changeSlide(n) {
-  slideIndex += n;
-  showSlide(slideIndex);
+// Brand slider
+let brandIndex=0;
+const brandSlides=document.querySelectorAll('.brand-slide');
+function showBrandSlide(index){
+  brandSlides.forEach((slide,i)=>{slide.style.transform=`translateX(-${index*100}%)`;});
 }
-
-// Automatic slideshow
-function autoSlides() {
-  slideIndex++;
-  showSlide(slideIndex);
-  setTimeout(autoSlides, 4000); // change slide every 4 seconds
-}
-
-// Keyboard navigation
-document.addEventListener("keydown", e => {
-  if (e.key === "ArrowRight") changeSlide(1);
-  if (e.key === "ArrowLeft") changeSlide(-1);
-});
-
-// Initialize slideshow
-showSlide(slideIndex);
-autoSlides();
-</script>
-<script>
-let brandIndex = 0;
-const brandSlides = document.querySelectorAll('.brand-slide');
-const totalBrandSlides = brandSlides.length;
-
-function showBrandSlide(index) {
-  brandSlides.forEach((slide, i) => {
-    slide.style.transform = `translateX(-${index * 100}%)`;
-  });
-}
-
-// Auto-advance every 4 seconds
-setInterval(() => {
-  brandIndex = (brandIndex + 1) % totalBrandSlides;
+function moveBrandSlide(direction){
+  brandIndex+=direction;
+  if(brandIndex<0) brandIndex=brandSlides.length-1;
+  if(brandIndex>=brandSlides.length) brandIndex=0;
   showBrandSlide(brandIndex);
-}, 4000);
-
-// Initial display
-showBrandSlide(brandIndex);
-</script>
-
-
-<script>
-let brandIndex = 0;
-
-function moveBrandSlide(direction) {
-  const slides = document.querySelectorAll('.brand-slide');
-  brandIndex += direction;
-
-  if (brandIndex < 0) brandIndex = slides.length - 1;
-  if (brandIndex >= slides.length) brandIndex = 0;
-
-  slides.forEach((slide, i) => {
-    slide.style.transform = `translateX(${(i - brandIndex) * 100}%)`;
-  });
 }
-
-/* Initialize */
-moveBrandSlide(0);
+setInterval(()=>{brandIndex=(brandIndex+1)%brandSlides.length;showBrandSlide(brandIndex);},4000);
+showBrandSlide(brandIndex);
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
