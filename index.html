@@ -64,18 +64,54 @@ h1,h2,h3{margin-bottom:1rem;}
 .accessory-card h3{font-size:.95rem;}
 .accessory-card p{font-size:.8rem;color:#555;}
 
-/* ================= BRAND SLIDER ================= */
-.brand-slider-wrapper{position:relative;max-width:1000px;margin:2rem auto;display:flex;align-items:center;justify-content:center;}
-.brand-slideshow-container{overflow:hidden;width:100%;}
-.brand-slide{display:flex;gap:20px;min-width:100%;justify-content:center;transition:transform 0.6s ease;}
-.brand-nav{
-  background:rgba(0,0,0,0.5);color:#fff;border:none;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.5rem;
-  display:flex;align-items:center;justify-content:center;transition:background .3s ease,transform .2s ease;
+//* BRAND SLIDER FIX */
+.brand-slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 2rem auto;
 }
-.brand-nav:hover{background:rgba(0,0,0,0.75);transform:scale(1.1);}
-.brand-nav.prev{margin-right:10px;}
-.brand-nav.next{margin-left:10px;}
 
+.brand-slideshow-container {
+  overflow: hidden;
+  width: 80%;
+}
+
+.brand-slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.brand-slide {
+  display: flex;
+  gap: 20px;
+  min-width: 100%;
+  justify-content: center;
+}
+
+.brand-nav {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.brand-nav:hover {
+  background: rgba(0,0,0,0.75);
+  transform: scale(1.1);
+}
+
+.brand-nav.prev { margin-right: 10px; }
+.brand-nav.next { margin-left: 10px; }
 /* ================= FOOTER ================= */
 .site-footer{background:#ff7400;color:#fff;padding:2rem;}
 .footer-container{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;}
@@ -161,33 +197,39 @@ button.submit-btn:hover{background:#0ea5e9;}
   <!-- Repeat as needed -->
 </div>
 </section>
-
 <section id="brands">
-<h2>Our Partners & Brands</h2>
-<p>We work with top global brands in compressed air technology.</p>
-<div class="brand-slider-wrapper">
-  <button class="brand-nav prev" onclick="moveBrandSlide(-1)">&#10094;</button>
-  <div class="brand-slideshow-container">
-    <div class="brand-slide">
-      <div class="accessory-card"><img src="abac_logo_tcm1159-633155.gif" alt="Abac"><h3>Abac</h3></div>
-      <div class="accessory-card"><img src="bauer-logo.jpg" alt="Bauer"><h3>Bauer</h3></div>
-      <div class="accessory-card"><img src="atlascopco.gif" alt="Atlas Copco"><h3>Atlas Copco</h3></div>
-    </div>
-    <div class="brand-slide">
-      <div class="accessory-card"><img src="denair.jpg" alt="Denair"><h3>Denair</h3></div>
-      <div class="accessory-card"><img src="elgilogo.png" alt="Elgi"><h3>Elgi</h3></div>
-      <div class="accessory-card"><img src="compairlogo.png" alt="Compair"><h3>Compair</h3></div>
-    </div>
-    <div class="brand-slide">
-      <div class="accessory-card"><img src="Gardner-Denver-good-logo-1024x393.jpg" alt="Gardner Denver"><h3>Gardner Denver</h3></div>
-      <div class="accessory-card"><img src="tranelogo.png" alt="Trane"><h3>Trane</h3></div>
-      <div class="accessory-card"><img src="quincylogo.png" alt="Quincy"><h3>Quincy</h3></div>
-    </div>
-  </div>
-  <button class="brand-nav next" onclick="moveBrandSlide(1)">&#10095;</button>
-</div>
-</section>
+  <h2>Our Partners & Brands</h2>
+  <p>We work with top global brands in compressed air technology.</p>
 
+  <div class="brand-slider-wrapper">
+    <!-- Left Arrow -->
+    <button class="brand-nav prev" onclick="moveBrandSlide(-1)">&#10094;</button>
+
+    <!-- Slider container -->
+    <div class="brand-slideshow-container">
+      <div class="brand-slides">
+        <div class="brand-slide">
+          <div class="accessory-card"><img src="abac_logo_tcm1159-633155.gif" alt="Abac"><h3>Abac</h3></div>
+          <div class="accessory-card"><img src="bauer-logo.jpg" alt="Bauer"><h3>Bauer</h3></div>
+          <div class="accessory-card"><img src="atlascopco.gif" alt="Atlas Copco"><h3>Atlas Copco</h3></div>
+        </div>
+        <div class="brand-slide">
+          <div class="accessory-card"><img src="denair.jpg" alt="Denair"><h3>Denair</h3></div>
+          <div class="accessory-card"><img src="elgilogo.png" alt="Elgi"><h3>Elgi</h3></div>
+          <div class="accessory-card"><img src="compairlogo.png" alt="Compair"><h3>Compair</h3></div>
+        </div>
+        <div class="brand-slide">
+          <div class="accessory-card"><img src="Gardner-Denver-good-logo-1024x393.jpg" alt="Gardner Denver"><h3>Gardner Denver</h3></div>
+          <div class="accessory-card"><img src="tranelogo.png" alt="Trane"><h3>Trane</h3></div>
+          <div class="accessory-card"><img src="quincylogo.png" alt="Quincy"><h3>Quincy</h3></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="brand-nav next" onclick="moveBrandSlide(1)">&#10095;</button>
+  </div>
+</section>
 <!-- FOOTER -->
 <footer class="site-footer">
 <div class="footer-container">
@@ -236,6 +278,24 @@ function moveBrandSlide(direction){
 setInterval(()=>{brandIndex=(brandIndex+1)%brandSlides.length;showBrandSlide(brandIndex);},4000);
 showBrandSlide(brandIndex);
 </script>
+<script>
+let brandIndex = 0;
+const brandSlides = document.querySelectorAll('.brand-slide');
+const brandSlidesContainer = document.querySelector('.brand-slides');
+const totalBrandSlides = brandSlides.length;
 
+function moveBrandSlide(direction) {
+  brandIndex += direction;
+  if (brandIndex < 0) brandIndex = totalBrandSlides - 1;
+  if (brandIndex >= totalBrandSlides) brandIndex = 0;
+  brandSlidesContainer.style.transform = `translateX(-${brandIndex * 100}%)`;
+}
+
+/* Optional auto-slide */
+setInterval(() => {
+  moveBrandSlide(1);
+}, 5000);
+</script>
 </body>
 </html>
+
