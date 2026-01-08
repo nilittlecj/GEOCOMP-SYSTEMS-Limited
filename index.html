@@ -239,28 +239,25 @@ h1, h2, h3 {
   gap: 15px;
   margin-top: 20px;
 }
+.accessories-grid {
+  display: grid;
 
-.accessory-card {
-  background: #fff;
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-  transition: transform .25s ease, box-shadow .25s ease;
+  /* Perfect responsive card sizing */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+  /* Clean spacing between cards */
+  gap: 20px;
+
+  /* Layout breathing room */
+  margin-top: 30px;
+
+  /* Prevent stretched cards */
+  align-items: start;
+
+  /* Center grid when few items */
+  justify-items: center;
 }
 
-.accessory-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 8px;
-}
-
-.accessory-card:hover {
-  transform: translateY(-4px);
-  transform: scale(1.7);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-}
 
 .accessory-card h3 {
   font-size: 0.95rem;
@@ -665,6 +662,7 @@ showBrandSlide(brandIndex);
 
 </body>
 </html>
+
 
 
 
