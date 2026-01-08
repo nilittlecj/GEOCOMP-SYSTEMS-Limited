@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoEcosystem - Compressed Air Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  padding: 20px;
+}
+
+/* ================= HEADER ================= */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #ff7400;
+  color: #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* ===== LOGO AREA ===== */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo container */
+header .logo {
+  width: 80px;
+  height: 80px;
+  padding: 8px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+/* Logo hover */
+header .logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Logo image */
+header .logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Brand name */
+header .brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+/* Menu button */
+header .menu-btn {
+  font-size: 1.8rem;
+  background: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+header .menu-btn:hover {
+  transform: scale(1.15);
+}
+
+/* ================= RESPONSIVE HEADER ================= */
+@media (max-width: 768px) {
+  header {
+    padding: 0.8rem 1rem;
+  }
+
+  header .logo {
+    width: 60px;
+    height: 60px;
+    padding: 6px;
+  }
+
+  header .brand {
+    font-size: 1.1rem;
+  }
+
+  header .menu-btn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header .logo {
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+  }
+
+  header .brand {
+    font-size: 1rem;
+  }
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100vh;
+  background: #0a102e;
+  color: #e5e7eb;
+  padding: 2rem;
+  transition: 0.35s ease;
+  z-index: 101;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.75rem 0;
+  font-weight: 600;
+  color: #cbd5f5;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #fff;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 100;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* ================= SLIDESHOW ================= */
+.slideshow-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+  background: rgba(0,0,0,0.35);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1, h2, h3 {
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ================= ACCESSORIES ================= */
+.accessories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.accessory-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.accessory-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.accessory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+.accessory-card h3 {
+  font-size: 0.95rem;
+}
+
+.accessory-card p {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* ================= FOOTER ================= */
+.site-footer {
+  background: #ff7400;
+  color: #fff;
+  padding: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer-block h4 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ================= FORMS & BUTTONS ================= */
+input, textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 0.6rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,.25);
+}
+
+button.submit-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  background: #6366f1;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.submit-btn:hover {
+  background: #0ea5e9;
+}
+
+/* ================= BRAND SLIDER ================= */
+.brand-slideshow-container {
+  display: flex;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.brand-slide {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  transition: transform 0.6s ease;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo"> <img src="images/logogeocomp.png" alt=""></div>
+  <div class="brand">GEOCOMP SYSTEMS Limited</div>
+  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+</header>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <a href="#home" onclick="toggleSidebar()">Home</a>
+  <a href="#about" onclick="toggleSidebar()">About</a>
+  <a href="#compressors" onclick="toggleSidebar()">Air Compressors</a>
+  <a href="#dryer" onclick="toggleSidebar()">Air Dryer</a>
+  <a href="#filtration" onclick="toggleSidebar()">Filtration</a>
+  <a href="#maintenance" onclick="toggleSidebar()">Inspection & Maintenance</a>
+  <a href="#contact" onclick="toggleSidebar()">Contact Us</a>
+</div>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- SLIDESHOW -->
+<div class="slideshow-container">
+  <img class="slide" src="images/roll1.jpg" alt="Slide 1">
+  <img class="slide" src="images/roll2.jpg" alt="Slide 2">
+  <img class="slide" src="images/roll4.jpg" alt="Slide 3">
+  
+  <img class="slide" src="images/roll5.jpg" alt="Slide 1">
+  <img class="slide" src="images/roll6.jpg" alt="Slide 2">
+  <img class="slide" src="images/roll7.jpg" alt="Slide 3">
+  
+  <img class="slide" src="images/roll8.jpg" alt="Slide 1">
+  <img class="slide" src="images/roll9.png" alt="Slide 2">
+  <a class="prev" onclick="changeSlide(-1)">❮</a>
+  <a class="next" onclick="changeSlide(1)">❯</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<main>
+
+<section id="home">
+  <h1>Complete Compressed Air Ecosystem</h1>
+  <p>Industrial compressed air solutions across Kenya.</p>
+</section>
+
+<section id="about">
+  <h2>Our Story</h2>
+  <p>
+    Geocomp systems Ltd was started in 2007 in Nairobi, Kenya as a sole proprietorship.
+    It later became a partnership and now a private limited company. Geocomp has flourished under its two directors: one technical, one managing business & marketing.
+  </p>
+</section>
+
+<section id="offers">
+  <h2>Receive Special Offers</h2>
+  <p>Sign up to receive our special offers direct to your inbox.</p>
+  <form>
+    <input type="email" placeholder="Enter your e-mail address">
+    <button type="submit" class="submit-btn">Subscribe</button>
+  </form>
+</section>
+
+<section id="emergency">
+  <h2>24 Hour Emergency Service</h2>
+  <p>We provide 24 hour Emergency Service 365 days a year. Call us: 0738 010 275</p>
+</section>
+
+<section id="experience">
+  <h2>15 Years Experience</h2>
+  <p>Over fifteen years’ experience in the compressed air industry in Kenya. Sales, installation, service, maintenance, spare parts, and accessories.</p>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card" id="compressors">
+  
+      <h3>Air Compressors</h3>
+      <p>Oil injection, portable, oil free, and lubricated compressors.</p>
+    </div>
+    <div class="card" id="dryer">
+     
+      <h3>Air Dryers</h3>
+      <p>Refrigerated air dryers remove moisture and contaminants from compressed air.</p>
+    </div>
+    <div class="card" id="filtration">
+     
+      <h3>Filtration</h3>
+      <p>Air filters, oil/water separators, housings, and elements for compressed air protection.</p>
+    </div>
+    <div class="card" id="maintenance">
+  
+      <h3>Installation & Maintenance</h3>
+      <p>Efficient, cost-effective installation, repair, and maintenance services.</p>
+    </div>
+  </div>
+</section>
+<section id="accessories">
+  <h2>Accessories & Spare Parts</h2>
+  <p>High-quality spare parts for all compressed air technologies.</p>
+
+  <div class="accessories-grid">
+    <!-- Product cards -->
+     
+    <div class="accessory-card">
+      <img src="images/dry.jpg" alt="Product 3">
+    </div>
+    <!-- Repeat up to 20 -->
+    <div class="accessory-card">
+      <img src="images/dr.jpg" alt="Product 4">
+    </div>
+    <div class="accessory-card">
+      <img src="images/DSC_0052.jpg" alt="Product 1">
+    </div>
+    <div class="accessory-card">
+      <img src="images/DSC_0035.jpg" alt="Product 2">
+    </div>
+
+<div class="accessory-card">
+      <img src="images/DSC_0088.jpg" alt="Product 1">
+    </div>
+    <div class="accessory-card">
+      <img src="images/DSC_0091.jpg" alt="Product 2">
+    </div>
+    <div class="accessory-card">
+      <img src="images/DSC_0092.jpg" alt="Product 3">
+    </div>
+
+    
+    <div class="accessory-card">
+      <img src="images/DSC_0108.jpg" alt="Product 3">
+    </div>
+    <!-- Repeat up to 20 -->
+    <div class="accessory-card">
+      <img src="images/DSC_0109.jpg" alt="Product 4">
+    </div>
+    <!-- Repeat up to 20 -->
+    <div class="accessory-card">
+      <img src="images/DSC_0115.jpg" alt="Product 4">
+    </div>
+
+    
+    <div class="accessory-card">
+      <img src="images/DSC_0116.jpg" alt="Product 3">
+    </div>
+    <!-- Repeat up to 20 -->
+    <div class="accessory-card">
+      <img src="images/DSC_0127.jpg" alt="Product 4">
+    </div>
+
+    
+    <div class="accessory-card">
+      <img src="images/DSC_0135.jpg" alt="Product 3">
+    </div>
+    <!-- Repeat up to 20 -->
+    <div class="accessory-card">
+      <img src="images/air comressor.jpg" alt="Product 4">
+    </div>
+    
+    
+    <div class="accessory-card">
+      <img src="images/airdryer.png" alt="Product 3">
+    </div>
+    <!-- Repeat up to 20 -->
+    <div class="accessory-card">
+      <img src="images/Air-Compressor.jpg" alt="Product 4">
+    </div>
+    <!-- ... keep adding until product20.jpg -->
+  </div>
+</section>
+
+<section id="brands">
+  <h2>Our Partners & Brands</h2>
+  <p>We work with top global brands in compressed air technology.</p>
+
+  <div class="brand-slideshow-container">
+    <div class="brand-slide">
+      <div class="accessory-card">
+        <img src="images/abac_logo_tcm1159-633155.gif" alt="Abac">
+        <h3>Abac</h3>
+      </div>
+      <div class="accessory-card">
+        <img src="images/bauer-logo.jpg" alt="Bauer">
+        <h3>Bauer</h3>
+      </div>
+      <div class="accessory-card">
+        <img src="images/atlascopco.gif" alt="Atlas Copco">
+        <h3>Atlas Copco</h3>
+      </div>
+    </div>
+
+    <div class="brand-slide">
+      <div class="accessory-card">
+        <img src="images/denair.jpg" alt="Denair">
+        <h3>Denair</h3>
+      </div>
+      <div class="accessory-card">
+        <img src="images/elgilogo.png" alt="Elgi">
+        <h3>Elgi</h3>
+      </div>
+      <div class="accessory-card">
+        <img src="images/compairlogo.png" alt="Compair">
+        <h3>Compair</h3>
+      </div>
+    </div>
+
+    <div class="brand-slide">
+      <div class="accessory-card">
+        <img src="images/Gardner-Denver-good-logo-1024x393.jpg" alt="Gardner Denver">
+        <h3>Gardner Denver</h3>
+      </div>
+      <div class="accessory-card">
+        <img src="images/tranelogo.png" alt="Trane">
+        <h3>Trane</h3>
+      </div>
+      <div class="accessory-card">
+        <img src="images/quincylogo.png" alt="Quincy">
+        <h3>Quincy</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-block">
+      <h4>MOBILE</h4>
+      <p>0738 010 275</p>
+      <p>Tel: 020 356 9848</p>
+    </div>
+    <div class="footer-block">
+      <h4>Email</h4>
+      <p>info@geocompsystems.co.ke</p>
+      <p>geocompsystemsltd@gmail.com</p>
+    </div>
+    <div class="footer-block">
+      <h4>Physical Location</h4>
+      <p>
+        New Commercial House, Ground Floor,<br>
+        Next to Unilever E.A Ltd,<br>
+        Along Enterprise Rd Industrial Area,<br>
+        Nairobi, Kenya
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Geocomp Systems Ltd. All Rights Reserved.
+  </div>
+</footer>
+<!-- ===== JS ===== -->
+<script>
+/* ===== Sidebar Toggle ===== */
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+}
+
+/* ===== Slideshow ===== */
+let slideIndex = 0;
+const slides = document.getElementsByClassName("slide");
+
+// Show a specific slide
+function showSlide(n) {
+  if (!slides.length) return; // safety check
+  if (n >= slides.length) slideIndex = 0;
+  if (n < 0) slideIndex = slides.length - 1;
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex].style.display = "block";
+}
+
+// Change slide manually
+function changeSlide(n) {
+  slideIndex += n;
+  showSlide(slideIndex);
+}
+
+// Automatic slideshow
+function autoSlides() {
+  slideIndex++;
+  showSlide(slideIndex);
+  setTimeout(autoSlides, 4000); // change slide every 4 seconds
+}
+
+// Keyboard navigation
+document.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") changeSlide(1);
+  if (e.key === "ArrowLeft") changeSlide(-1);
+});
+
+// Initialize slideshow
+showSlide(slideIndex);
+autoSlides();
+</script>
+<script>
+let brandIndex = 0;
+const brandSlides = document.querySelectorAll('.brand-slide');
+const totalBrandSlides = brandSlides.length;
+
+function showBrandSlide(index) {
+  brandSlides.forEach((slide, i) => {
+    slide.style.transform = `translateX(-${index * 100}%)`;
+  });
+}
+
+// Auto-advance every 4 seconds
+setInterval(() => {
+  brandIndex = (brandIndex + 1) % totalBrandSlides;
+  showBrandSlide(brandIndex);
+}, 4000);
+
+// Initial display
+showBrandSlide(brandIndex);
+</script>
+
+
+
+</body>
+</html>
