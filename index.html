@@ -542,51 +542,60 @@ button.submit-btn:hover {
   <h2>Our Partners & Brands</h2>
   <p>We work with top global brands in compressed air technology.</p>
 
-  <div class="brand-slideshow-container">
-    <div class="brand-slide">
-      <div class="accessory-card">
-        <img src="abac_logo_tcm1159-633155.gif" alt="Abac">
-        <h3>Abac</h3>
+  <div class="brand-slider-wrapper">
+    <!-- Left Arrow -->
+    <button class="brand-nav prev" onclick="moveBrandSlide(-1)">&#10094;</button>
+
+    <!-- Slider -->
+    <div class="brand-slideshow-container">
+      <div class="brand-slide">
+        <div class="accessory-card">
+          <img src="abac_logo_tcm1159-633155.gif" alt="Abac">
+          <h3>Abac</h3>
+        </div>
+        <div class="accessory-card">
+          <img src="bauer-logo.jpg" alt="Bauer">
+          <h3>Bauer</h3>
+        </div>
+        <div class="accessory-card">
+          <img src="atlascopco.gif" alt="Atlas Copco">
+          <h3>Atlas Copco</h3>
+        </div>
       </div>
-      <div class="accessory-card">
-        <img src="bauer-logo.jpg" alt="Bauer">
-        <h3>Bauer</h3>
+
+      <div class="brand-slide">
+        <div class="accessory-card">
+          <img src="denair.jpg" alt="Denair">
+          <h3>Denair</h3>
+        </div>
+        <div class="accessory-card">
+          <img src="elgilogo.png" alt="Elgi">
+          <h3>Elgi</h3>
+        </div>
+        <div class="accessory-card">
+          <img src="compairlogo.png" alt="Compair">
+          <h3>Compair</h3>
+        </div>
       </div>
-      <div class="accessory-card">
-        <img src="atlascopco.gif" alt="Atlas Copco">
-        <h3>Atlas Copco</h3>
+
+      <div class="brand-slide">
+        <div class="accessory-card">
+          <img src="Gardner-Denver-good-logo-1024x393.jpg" alt="Gardner Denver">
+          <h3>Gardner Denver</h3>
+        </div>
+        <div class="accessory-card">
+          <img src="tranelogo.png" alt="Trane">
+          <h3>Trane</h3>
+        </div>
+        <div class="accessory-card">
+          <img src="quincylogo.png" alt="Quincy">
+          <h3>Quincy</h3>
+        </div>
       </div>
     </div>
 
-    <div class="brand-slide">
-      <div class="accessory-card">
-        <img src="denair.jpg" alt="Denair">
-        <h3>Denair</h3>
-      </div>
-      <div class="accessory-card">
-        <img src="elgilogo.png" alt="Elgi">
-        <h3>Elgi</h3>
-      </div>
-      <div class="accessory-card">
-        <img src="compairlogo.png" alt="Compair">
-        <h3>Compair</h3>
-      </div>
-    </div>
-
-    <div class="brand-slide">
-      <div class="accessory-card">
-        <img src="Gardner-Denver-good-logo-1024x393.jpg" alt="Gardner Denver">
-        <h3>Gardner Denver</h3>
-      </div>
-      <div class="accessory-card">
-        <img src="tranelogo.png" alt="Trane">
-        <h3>Trane</h3>
-      </div>
-      <div class="accessory-card">
-        <img src="quincylogo.png" alt="Quincy">
-        <h3>Quincy</h3>
-      </div>
-    </div>
+    <!-- Right Arrow -->
+    <button class="brand-nav next" onclick="moveBrandSlide(1)">&#10095;</button>
   </div>
 </section>
 
@@ -689,9 +698,28 @@ showBrandSlide(brandIndex);
 </script>
 
 
+<script>
+let brandIndex = 0;
+
+function moveBrandSlide(direction) {
+  const slides = document.querySelectorAll('.brand-slide');
+  brandIndex += direction;
+
+  if (brandIndex < 0) brandIndex = slides.length - 1;
+  if (brandIndex >= slides.length) brandIndex = 0;
+
+  slides.forEach((slide, i) => {
+    slide.style.transform = `translateX(${(i - brandIndex) * 100}%)`;
+  });
+}
+
+/* Initialize */
+moveBrandSlide(0);
+</script>
 
 </body>
 </html>
+
 
 
 
