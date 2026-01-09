@@ -64,14 +64,14 @@ h1,h2{margin-bottom:.75rem}
 .brand-track {
   display: flex;
   gap: 40px;
-  animation: scrollBrands 30s linear infinite;
+  animation: scrollBrands 5s linear infinite;
 }
 
 .brand-track img {
   height: 60px;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%);
+  
   opacity: 0.8;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
@@ -205,14 +205,6 @@ footer{background:#ff7400;color:#fff;padding:2rem 1.5rem}
   </div>
 </section>
 
-<footer id="contact">
-  <div class="footer-inner">
-    <div><h4>Mobile</h4><p>0738 010 275</p><p>020 356 9848</p></div>
-    <div><h4>Email</h4><p>info@geocompsystems.co.ke</p><p>geocompsystemsltd@gmail.com</p></div>
-    <div><h4>Location</h4><p>Industrial Area, Nairobi, Kenya</p></div>
-  </div>
-  <div class="footer-bottom">© 2026 Geocomp Systems Ltd</div>
-</footer>
 <!-- BRAND LOGO SLIDER -->
 <section class="brand-slider">
   <h2>Our Trusted Brands</h2>
@@ -237,6 +229,16 @@ footer{background:#ff7400;color:#fff;padding:2rem 1.5rem}
     </div>
   </div>
 </section>
+  
+<footer id="contact">
+  <div class="footer-inner">
+    <div><h4>Mobile</h4><p>0738 010 275</p><p>020 356 9848</p></div>
+    <div><h4>Email</h4><p>info@geocompsystems.co.ke</p><p>geocompsystemsltd@gmail.com</p></div>
+    <div><h4>Location</h4><p>Industrial Area, Nairobi, Kenya</p></div>
+  </div>
+  <div class="footer-bottom">© 2026 Geocomp Systems Ltd</div>
+</footer>
+
 
 <script>
 const sidebar=document.getElementById('sidebar');
@@ -259,6 +261,7 @@ setInterval(()=>{index=(index+1)%slides.length;show(index)},4000);
 
 </body>
 </html>
+
 
 
 
