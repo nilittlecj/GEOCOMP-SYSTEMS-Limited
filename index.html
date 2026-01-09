@@ -43,11 +43,11 @@ h1,h2{margin-bottom:.75rem}
 .slide-nav.prev{left:10px}
 .slide-nav.next{right:10px}
 
- /* BRAND LOGO SLIDESHOW */
+/* BRAND LOGO SLIDER */
 .brand-slider { 
   background: #fff;
   padding: 1.5rem 0;
-  overflow: hidden;
+  text-align: center;
 }
 
 .brand-slider-wrapper { 
@@ -57,7 +57,7 @@ h1,h2{margin-bottom:.75rem}
 .brand-track {
   display: flex;
   gap: 40px;
-  animation: scrollBrands 12s linear infinite;
+  animation: scrollBrands 20s linear infinite;
 }
 
 .brand-track img {
@@ -68,8 +68,10 @@ h1,h2{margin-bottom:.75rem}
 /* Smooth continuous scroll */
 @keyframes scrollBrands {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  100% { transform: translateX(-50%); }
 }
+
+/* Adjust speed: lower seconds → faster */
 
 /* Adjust speed: lower seconds → faster */
 
@@ -180,9 +182,8 @@ footer{background:#ff7400;color:#fff;padding:2rem 1.5rem;margin-left: -5px; marg
 <!-- BRAND LOGO SLIDER -->
 <section class="brand-slider">
   <h2>Our Trusted Brands</h2>
-
   <div class="brand-slider-wrapper">
-    <div class="brand-track">
+    <div class="brand-track" id="brandTrack">
       <!-- 14 logos -->
       <img src="abac_logo_tcm1159-633155.gif" alt="Brand 1">
       <img src="tranelogo.png" alt="Brand 2">
@@ -198,10 +199,7 @@ footer{background:#ff7400;color:#fff;padding:2rem 1.5rem;margin-left: -5px; marg
       <img src="compairlogo.png" alt="Brand 12">
       <img src="atlascopco.gif" alt="Brand 13">
       <img src="xirlogo-header.png.pagespeed.ic_.U9xB4aYIK9.png" alt="Brand 14">
-    </div>
-
-   <div class="brand-track">
-      <!-- 14 logos -->
+      <!-- Duplicate logos for smooth infinite scroll -->
       <img src="abac_logo_tcm1159-633155.gif" alt="Brand 1">
       <img src="tranelogo.png" alt="Brand 2">
       <img src="quincylogo.png" alt="Brand 3">
@@ -248,9 +246,33 @@ document.querySelector('.next').onclick=()=>{index=(index+1)%slides.length;show(
 document.querySelector('.prev').onclick=()=>{index=(index-1+slides.length)%slides.length;show(index);}
 setInterval(()=>{index=(index+1)%slides.length;show(index)},4000);
 </script>
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.getElementById('brandTrack');
+  let slideWidth = track.offsetWidth / 2; // Half the width of the track (because logos are duplicated)
+  
+  // Function to scroll the brand logos
+  function scrollLogos() {
+    track.style.transition = 'transform 0.5s ease-in-out';
+    track.style.transform = `translateX(-${slideWidth}px)`;
 
+    // Reset the scroll position after animation
+    setTimeout(() => {
+      track.style.transition = 'none'; // Disable transition for immediate reset
+      track.style.transform = 'translateX(0)';
+      setTimeout(() => {
+        track.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+      }, 50);
+    }, 500); // Wait for the transition to finish before resetting
+  }
+
+  // Auto-scroll the logos every 4 seconds
+  setInterval(scrollLogos, 4000);
+});
+</script>
 </body>
 </html>
+
 
 
 
