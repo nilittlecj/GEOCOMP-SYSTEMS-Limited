@@ -1,105 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GeoEcosystem - Compressed Air Solutions</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Geocomp Systems Ltd | Compressed Air Solutions</title>
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ================= RESET ================= */
-* {
+/* ========== RESET & BASE ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 body {
   font-family: 'Inter', sans-serif;
   background: #f8fafc;
   color: #0f172a;
-  padding: 0;
+  line-height: 1.6;
 }
 
-/* ================= HEADER ================= */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========== HEADER ========== */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: #ff7400;
-  color: #000;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  background: #ff7400;
+  box-shadow: 0 3px 10px rgba(0,0,0,.15);
 }
 
-.header-left {
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-wrap {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-header .logo {
-  width: 80px;
-  height: 80px;
-  padding: 10px;
+.logo {
+  width: 64px;
+  height: 64px;
+  padding: 8px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform .3s ease, box-shadow .3s ease;
 }
 
-header .logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-
-header .logo img {
-  max-width: 85%;
-  max-height: 85%;
-  object-fit: contain;
-}
-
-header .brand {
+.brand {
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   white-space: nowrap;
 }
 
-header .menu-btn {
+.menu-btn {
   font-size: 1.8rem;
   background: none;
-  color: #fff;
   border: none;
+  color: #fff;
   cursor: pointer;
-  padding: 0.5rem;
 }
 
-/* ================= SIDEBAR ================= */
+/* ========== SIDEBAR ========== */
 .sidebar {
   position: fixed;
-  top: 0;
-  right: -280px;
+  inset: 0 0 0 auto;
   width: 280px;
-  height: 100vh;
   background: #0a102e;
-  color: #e5e7eb;
   padding: 2rem;
-  transition: right .35s ease;
-  z-index: 101;
+  transform: translateX(100%);
+  transition: transform .35s ease;
+  z-index: 200;
 }
 
 .sidebar.active {
-  right: 0;
+  transform: translateX(0);
 }
 
 .sidebar a {
@@ -119,379 +112,255 @@ header .menu-btn {
   inset: 0;
   background: rgba(0,0,0,.5);
   display: none;
-  z-index: 100;
+  z-index: 150;
 }
 
 .overlay.active {
   display: block;
 }
 
-/* ================= SECTIONS ================= */
+/* ========== SECTIONS ========== */
 section {
-  padding: 3rem 2rem;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
+  padding: 3rem 1.5rem;
 }
 
-h1, h2, h3 {
+h1, h2 {
+  margin-bottom: .75rem;
+}
+
+p {
   margin-bottom: 1rem;
 }
 
 .grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .card {
   background: #fff;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1.25rem;
   box-shadow: 0 8px 20px rgba(0,0,0,.1);
 }
 
-.card img {
-  border-radius: 1rem;
-  margin-bottom: .5rem;
-}
-
-/* ================= ACCESSORIES ================= */
-.accessories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  margin-top: 32px;
-  justify-items: center;
-}
-
-.accessory-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  text-align: center;
-  width: 100%;
-  max-width: 190px;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.accessory-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 10px;
-  transition: transform .3s ease;
-}
-
-.accessory-card:hover img {
-  transform: scale(1.08);
-}
-
-.accessory-card:hover {
-  box-shadow: 0 8px 18px rgba(0,0,0,.18);
-}
-
-.accessory-card h3 {
-  font-size: .95rem;
-}
-
-.accessory-card p {
-  font-size: .8rem;
-  color: #555;
-}
-
-/* ================= SLIDESHOW ================= */
-.slideshow-container {
-  position: relative;
-  max-width: 1000px;
+/* ========== SLIDESHOW ========== */
+.slideshow {
+  max-width: 1100px;
   margin: 2rem auto;
+  position: relative;
   overflow: hidden;
   border-radius: 12px;
 }
 
 .slide {
   display: none;
-  width: 100%;
 }
 
-.prev, .next {
-  cursor: pointer;
+.slide.active {
+  display: block;
+}
+
+.slide-nav {
   position: absolute;
   top: 50%;
-  padding: .8rem;
-  color: #fff;
-  font-size: 1.4rem;
-  background: rgba(0,0,0,.4);
-  border-radius: 50%;
   transform: translateY(-50%);
-}
-
-/* ================= BRAND SLIDER ================= */
-.brand-slider-wrapper {
-  position: relative;
-  max-width: 1000px;
-  margin: 2rem auto;
-}
-
-.brand-slideshow-container {
-  overflow: hidden;
-  width: 80%;
-  margin: auto;
-}
-
-.brand-slides {
-  display: flex;
-  transition: transform .5s ease-in-out;
-}
-
-.brand-slide {
-  display: flex;
-  gap: 20px;
-  min-width: 100%;
-  justify-content: center;
-}
-
-.brand-nav {
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.4);
   color: #fff;
   border: none;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+  padding: .6rem .9rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  font-size: 1.4rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-.brand-nav.prev {
-  left: 0;
+.slide-nav.prev { left: 10px; }
+.slide-nav.next { right: 10px; }
+
+/* ========== ACCESSORIES ========== */
+.accessories-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
-.brand-nav.next {
-  right: 0;
+.accessory-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-/* ================= FOOTER ================= */
-.site-footer {
+.accessory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+}
+
+.accessory-card img {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  object-fit: contain;
+}
+
+/* ========== FOOTER ========== */
+footer {
   background: #ff7400;
   color: #fff;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
 }
 
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
+.footer-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
   gap: 2rem;
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .footer-bottom {
-  margin-top: 1rem;
   text-align: center;
+  margin-top: 1rem;
   font-size: .9rem;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  header {
-    padding: .8rem 1rem;
-  }
-
-  header .logo {
-    width: 60px;
-    height: 60px;
-  }
-
-  header .brand {
-    font-size: 1.1rem;
-  }
-
-  section {
-    padding: 2rem 1rem;
-  }
-
-  .brand-slideshow-container {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  header .logo {
-    width: 48px;
-    height: 48px;
-  }
-
-  header .brand {
+/* ========== MOBILE ========== */
+@media (max-width: 600px) {
+  .brand {
     font-size: 1rem;
     max-width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .accessories-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .accessory-card img {
-    width: 80px;
-    height: 80px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .sidebar {
-    width: 100%;
-    right: -100%;
-  }
 }
 </style>
 </head>
+
 <body>
 
 <!-- HEADER -->
 <header>
-  <div class="header-left">
-    <div class="logo"><img src="images/logogeocomp.png" alt="Logo"></div>
-    <div class="brand">GEOCOMP SYSTEMS Limited</div>
+  <div class="header-inner">
+    <div class="brand-wrap">
+      <div class="logo">
+        <img src="images/logogeocomp.png" alt="Geocomp Systems Logo">
+      </div>
+      <div class="brand">GEOCOMP SYSTEMS LTD</div>
+    </div>
+    <button class="menu-btn" id="menuBtn">☰</button>
   </div>
-  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
 </header>
 
 <!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
-  <a href="#home" onclick="toggleSidebar()">Home</a>
-  <a href="#about" onclick="toggleSidebar()">About</a>
-  <a href="#compressors" onclick="toggleSidebar()">Air Compressors</a>
-  <a href="#dryer" onclick="toggleSidebar()">Air Dryer</a>
-  <a href="#filtration" onclick="toggleSidebar()">Filtration</a>
-  <a href="#maintenance" onclick="toggleSidebar()">Installation & Maintenance</a>
-  <a href="#contact" onclick="toggleSidebar()">Contact Us</a>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#accessories">Accessories</a>
+  <a href="#brands">Brands</a>
+  <a href="#contact">Contact</a>
 </div>
-<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+<div class="overlay" id="overlay"></div>
 
-<!-- MAIN SLIDESHOW -->
-<div class="slideshow-container">
-  <img class="slide" src="roll1.jpg" alt="Slide 1">
-  <img class="slide" src="roll2.jpg" alt="Slide 2">
-  <img class="slide" src="roll3.jpg" alt="Slide 3">
-  <a class="prev" onclick="changeSlide(-1)">❮</a>
-  <a class="next" onclick="changeSlide(1)">❯</a>
+<!-- SLIDESHOW -->
+<div class="slideshow">
+  <img src="roll1.jpg" class="slide active" alt="">
+  <img src="roll2.jpg" class="slide" alt="">
+  <img src="roll3.jpg" class="slide" alt="">
+  <button class="slide-nav prev">❮</button>
+  <button class="slide-nav next">❯</button>
 </div>
 
-<!-- MAIN CONTENT -->
-<main>
-<section id="home"><h1>Complete Compressed Air Ecosystem</h1><p>Industrial compressed air solutions across Kenya.</p></section>
-<section id="about"><h2>Our Story</h2><p>Geocomp Systems Ltd started in 2007 in Nairobi, Kenya. Now a private limited company with 15+ years of experience in sales, installation, service, maintenance, spare parts, and accessories.</p></section>
+<!-- CONTENT -->
+<section id="home">
+  <h1>Complete Compressed Air Ecosystem</h1>
+  <p>Industrial compressed air solutions across Kenya.</p>
+</section>
 
-<section id="offers">
-<h2>Receive Special Offers</h2>
-<p>Sign up to receive our special offers direct to your inbox.</p>
-<form>
-<input type="email" placeholder="Enter your e-mail address">
-<button type="submit" class="submit-btn">Subscribe</button>
-</form>
+<section id="about">
+  <h2>Our Story</h2>
+  <p>Founded in 2007, Geocomp Systems Ltd delivers sales, installation, service, maintenance, and spare parts for compressed air systems.</p>
 </section>
 
 <section id="services">
-<h2>Our Services</h2>
-<div class="grid">
-<div class="card" id="compressors"><h3>Air Compressors</h3><p>Oil injection, portable, oil free, and lubricated compressors.</p></div>
-<div class="card" id="dryer"><h3>Air Dryers</h3><p>Refrigerated air dryers remove moisture and contaminants from compressed air.</p></div>
-<div class="card" id="filtration"><h3>Filtration</h3><p>Air filters, oil/water separators, housings, and elements for compressed air protection.</p></div>
-<div class="card" id="maintenance"><h3>Installation & Maintenance</h3><p>Efficient, cost-effective installation, repair, and maintenance services.</p></div>
-</div>
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card"><h3>Air Compressors</h3><p>Oil injected, oil free, portable & lubricated compressors.</p></div>
+    <div class="card"><h3>Air Dryers</h3><p>Refrigerated dryers for moisture-free air.</p></div>
+    <div class="card"><h3>Filtration</h3><p>Filters, separators & housings.</p></div>
+    <div class="card"><h3>Maintenance</h3><p>Installation, repair & servicing.</p></div>
+  </div>
 </section>
 
 <section id="accessories">
-<h2>Accessories & Spare Parts</h2>
-<p>High-quality spare parts for all compressed air technologies.</p>
-<div class="accessories-grid">
-  <div class="accessory-card"><img src="dry.jpg" alt="Dryer"><h3>Dryer</h3></div>
-  <div class="accessory-card"><img src="dr.jpg" alt="Filter"><h3>Filter</h3></div>
-  <div class="accessory-card"><img src="DSC_0052.jpg" alt="Part"><h3>Part A</h3></div>
-  <div class="accessory-card"><img src="DSC_0035.jpg" alt="Part"><h3>Part B</h3></div>
-</div>
-</section>
-
-<section id="brands">
-<h2>Our Partners & Brands</h2>
-<p>We work with top global brands in compressed air technology.</p>
-<div class="brand-slider-wrapper">
-<button class="brand-nav prev" onclick="moveBrandSlide(-1)">&#10094;</button>
-<div class="brand-slideshow-container">
-  <div class="brand-slides">
- 
-      <div class="accessory-card"><img src="abac_logo_tcm1159-633155.gif" alt="Abac"><h3>Abac</h3></div>
-      <div class="accessory-card"><img src="bauer-logo.jpg" alt="Bauer"><h3>Bauer</h3></div>
-      <div class="accessory-card"><img src="atlascopco.gif" alt="Atlas Copco"><h3>Atlas Copco</h3></div>
-   
-   
-      <div class="accessory-card"><img src="denair.jpg" alt="Denair"><h3>Denair</h3></div>
-      <div class="accessory-card"><img src="elgilogo.png" alt="Elgi"><h3>Elgi</h3></div>
-      <div class="accessory-card"><img src="compairlogo.png" alt="Compair"><h3>Compair</h3></div>
-
-      <div class="accessory-card"><img src="Gardner-Denver-good-logo-1024x393.jpg" alt="Gardner Denver"><h3>Gardner Denver</h3></div>
-      <div class="accessory-card"><img src="tranelogo.png" alt="Trane"><h3>Trane</h3></div>
-      <div class="accessory-card"><img src="quincylogo.png" alt="Quincy"><h3>Quincy</h3></div>
-    </div>
+  <h2>Accessories & Spare Parts</h2>
+  <div class="accessories-grid">
+    <div class="accessory-card"><img src="dry.jpg"><h4>Dryer</h4></div>
+    <div class="accessory-card"><img src="dr.jpg"><h4>Filter</h4></div>
+    <div class="accessory-card"><img src="DSC_0052.jpg"><h4>Part A</h4></div>
+    <div class="accessory-card"><img src="DSC_0035.jpg"><h4>Part B</h4></div>
   </div>
-</div>
-<button class="brand-nav next" onclick="moveBrandSlide(1)">&#10095;</button>
-</div>
 </section>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-<div class="footer-container">
-<div class="footer-block"><h4>MOBILE</h4><p>0738 010 275</p><p>Tel: 020 356 9848</p></div>
-<div class="footer-block"><h4>Email</h4><p>info@geocompsystems.co.ke</p><p>geocompsystemsltd@gmail.com</p></div>
-<div class="footer-block"><h4>Physical Location</h4><p>New Commercial House, Ground Floor,<br>Next to Unilever E.A Ltd,<br>Along Enterprise Rd Industrial Area,<br>Nairobi, Kenya</p></div>
-</div>
-<div class="footer-bottom">© 2026 Geocomp Systems Ltd. All Rights Reserved.</div>
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <h4>Mobile</h4>
+      <p>0738 010 275</p>
+      <p>020 356 9848</p>
+    </div>
+    <div>
+      <h4>Email</h4>
+      <p>info@geocompsystems.co.ke</p>
+      <p>geocompsystemsltd@gmail.com</p>
+    </div>
+    <div>
+      <h4>Location</h4>
+      <p>Industrial Area, Nairobi, Kenya</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Geocomp Systems Ltd</div>
 </footer>
 
-<!-- ================= JS ================= -->
 <script>
-// Sidebar toggle
-function toggleSidebar(){
-  document.getElementById('sidebar').classList.toggle('active');
-  document.getElementById('overlay').classList.toggle('active');
-}
+/* ========== JS ========== */
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+const menuBtn = document.getElementById('menuBtn');
 
-// MAIN IMAGE SLIDESHOW
-(function(){
-  let slideIndex=0;
-  const slides=document.querySelectorAll(".slideshow-container .slide");
-  function showSlide(n){if(!slides.length)return;if(n>=slides.length)slideIndex=0;if(n<0)slideIndex=slides.length-1;slides.forEach(s=>s.style.display="none");slides[slideIndex].style.display="block";}
-  function changeSlide(n){slideIndex+=n;showSlide(slideIndex);}
-  function autoSlide(){slideIndex++;showSlide(slideIndex);setTimeout(autoSlide,4000);}
-  showSlide(slideIndex);autoSlide();
-  window.changeSlide=changeSlide;
-})();
+menuBtn.onclick = overlay.onclick = () => {
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+};
 
-// BRAND SLIDER
-(function(){
-  let brandIndex=0;
-  const container=document.querySelector(".brand-slides");
-  const slides=document.querySelectorAll(".brand-slide");
-  const total=slides.length;
-  function moveBrandSlide(dir){brandIndex+=dir;if(brandIndex<0)brandIndex=total-1;if(brandIndex>=total)brandIndex=0;container.style.transform=`translateX(-${brandIndex*100}%)`;}
-  container.style.transition='transform 0.5s ease';container.style.transform='translateX(0%)';
-  setInterval(()=>moveBrandSlide(1),5000);
-  window.moveBrandSlide=moveBrandSlide;
-})();
+/* Slideshow */
+let index = 0;
+const slides = document.querySelectorAll('.slide');
+const showSlide = i => {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[i].classList.add('active');
+};
+
+document.querySelector('.next').onclick = () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+};
+
+document.querySelector('.prev').onclick = () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+};
+
+setInterval(() => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}, 4000);
 </script>
 
 </body>
 </html>
-
