@@ -43,63 +43,35 @@ h1,h2{margin-bottom:.75rem}
 .slide-nav.prev{left:10px}
 .slide-nav.next{right:10px}
 
-  /* ===== BRAND LOGO SLIDER ===== */
-.brand-slider {
+ /* BRAND LOGO SLIDESHOW */
+.brand-slider { 
   background: #fff;
-  padding: 3rem 1rem;
+  padding: 1.5rem 0;
   overflow: hidden;
 }
 
-.brand-slider h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.brand-slider-wrapper {
-  max-width: 1200px;
-  margin: auto;
+.brand-slider-wrapper { 
   overflow: hidden;
 }
 
 .brand-track {
   display: flex;
-  gap: 10px;
-  animation: scrollBrands 8s linear infinite;
+  gap: 40px;
+  animation: scrollBrands 12s linear infinite;
 }
 
 .brand-track img {
   height: 60px;
-  width: auto;
-  object-fit: contain;
-  
-  opacity: 0.8;
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  flex-shrink: 0;
 }
 
-.brand-track img:hover {
-  filter: grayscale(0);
-  opacity: 1;
-}
-
-/* Smooth infinite scroll */
+/* Smooth continuous scroll */
 @keyframes scrollBrands {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .brand-track {
-    gap: 24px;
-  }
-  .brand-track img {
-    height: 48px;
-  }
-}
+/* Adjust speed: lower seconds → faster */
 
 /* ===== ACCESSORIES ===== */
 .accessories-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
@@ -261,6 +233,7 @@ setInterval(()=>{index=(index+1)%slides.length;show(index)},4000);
 
 </body>
 </html>
+
 
 
 
