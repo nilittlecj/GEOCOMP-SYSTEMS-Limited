@@ -206,9 +206,22 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
   </div>
 </section>
 
+<div id="adminPanel" style="display:none; background:#fff; padding:1rem; max-width:1100px; margin:auto;">
+  <h3>Admin Login</h3>
+  <input id="email" placeholder="Email"><br><br>
+  <input id="password" type="password" placeholder="Password"><br><br>
+  <button id="loginBtn">Login</button>
+  <br><br>
+  <input type="file" id="uploadImage" multiple>
+</div>
+
+
+  
 <section id="accessories">
   <h2>Accessories & Spare Parts</h2>
-  <div class="accessories-grid">
+<div class="accessories-grid" id="accessoriesGrid"></div>
+
+  <!-- <div class="accessories-grid">
     <img src="dry.jpg">
    <img src="dr.jpg">
    <img src="DSC_0052.jpg">
@@ -233,7 +246,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
     <img src="air comressor.jpg">
        <img src="Air-Compressor.jpg">
  
-  </div>
+  </div> -->
 </section>
 
 <!-- BRAND LOGO SLIDER -->
@@ -383,8 +396,95 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(scrollLogos, 4000);
 });
 </script>
+
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "XXXX",
+  appId: "XXXX"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+window.firebaseServices = { auth, db, storage, signInWithEmailAndPassword, collection, addDoc, getDocs, deleteDoc, doc, ref, uploadBytes, getDownloadURL, deleteObject };
+
+  
+  <script type="module">
+const {
+  auth, db, storage,
+  signInWithEmailAndPassword,
+  collection, addDoc, getDocs, deleteDoc, doc,
+  ref, uploadBytes, getDownloadURL, deleteObject
+} = window.firebaseServices;
+
+const grid = document.getElementById("accessoriesGrid");
+const adminPanel = document.getElementById("adminPanel");
+
+// Admin login
+document.getElementById("loginBtn").onclick = async () => {
+  const email = email.value;
+  const password = password.value;
+  await signInWithEmailAndPassword(auth, email, password);
+  adminPanel.style.display = "block";
+};
+
+// Load images
+async function loadImages() {
+  const querySnapshot = await getDocs(collection(db, "images"));
+  querySnapshot.forEach(docSnap => {
+    renderImage(docSnap.id, docSnap.data().url);
+  });
+}
+
+// Upload image
+document.getElementById("uploadImage").onchange = async e => {
+  for (let file of e.target.files) {
+    const storageRef = ref(storage, `images/${Date.now()}-${file.name}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    await addDoc(collection(db, "images"), { url, path: storageRef.fullPath });
+    renderImage(null, url);
+  }
+};
+
+// Render image
+function renderImage(id, url) {
+  const div = document.createElement("div");
+  div.style.position = "relative";
+
+  div.innerHTML = `
+    <img src="${url}">
+    <button style="position:absolute;top:5px;right:5px;background:red;color:#fff;border:none;">✖</button>
+  `;
+
+  div.querySelector("button").onclick = async () => {
+    const imgDoc = doc(db, "images", id);
+    await deleteDoc(imgDoc);
+    div.remove();
+  };
+
+  grid.appendChild(div);
+}
+
+loadImages();
+</script>
+
+  </script>
+
 </body>
 </html>
+
 
 
 
