@@ -5,246 +5,124 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Geocomp Systems Ltd | Compressed Air Solutions</title>
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<!-- Boxicons CDN -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-
-  
 <style>
 /* ===== RESET ===== */
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,sans-serif;padding: 5px; padding-top: 0; padding-bottom: 0;background:#f8fafc;color:#0f172a;line-height:1.6}
-img{max-width:100%;display:block}
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: Inter,sans-serif; padding: 5px; background:#f8fafc; color:#0f172a; line-height:1.6; }
+img { max-width:100%; display:block; }
 
 /* ===== HEADER ===== */
-header{position:sticky;top:0;z-index:100;background:#FF7400; opacity: 90%;margin-left: -5px; margin-right: -5px;box-shadow:0 3px 10px rgba(0,0,0,.15)}
-.header-inner{max-width:1200px;margin:auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
-.brand-wrap{display:flex;align-items:center;gap:1rem}
-.logo{width:104px;height:104px;display:flex;align-items:center;justify-content:center}
-.brand-wrap h3{font-size:1.2rem;font-weight:700}
-.menu-btn{font-size:1.8rem;background:none;border:none;color:#fff;cursor:pointer}
+header { position:sticky; top:0; z-index:100; background:#FF7400; opacity:0.9; margin-left:-5px; margin-right:-5px; box-shadow:0 3px 10px rgba(0,0,0,.15); }
+.header-inner { max-width:1200px; margin:auto; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+.brand-wrap { display:flex; align-items:center; gap:1rem; }
+.logo { width:104px; height:104px; display:flex; align-items:center; justify-content:center; }
+.brand-wrap h3 { font-size:1.2rem; font-weight:700; color:#fff; }
+.menu-btn { font-size:1.8rem; background:none; border:none; color:#fff; cursor:pointer; }
 
 /* ===== SIDEBAR ===== */
-.sidebar{position:fixed;top:0;opacity: 85%; right:0;width:230px;height:100vh;background:#ed9d5a;padding:2rem;transform:translateX(100%);transition:.35s;z-index:200}
-.sidebar.active{transform:translateX(0)}
-.sidebar a{display:block;padding:1rem 0;font-weight:600;color:#444;text-decoration:none}
-.sidebar a:hover{color:#fff}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:150}
-.overlay.active{display:block}
+.sidebar { position:fixed; top:0; right:0; width:230px; height:100vh; background:#ed9d5a; padding:2rem; transform:translateX(100%); transition:.35s; z-index:200; opacity:0.85; }
+.sidebar.active { transform:translateX(0); }
+.sidebar a { display:flex; align-items:center; gap:10px; padding:1rem 0; font-weight:600; color:#444; text-decoration:none; }
+.sidebar a:hover { color:#fff; }
+.overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; z-index:150; }
+.overlay.active { display:block; }
 
 /* ===== SECTIONS ===== */
-section{max-width:1100px;margin:auto;padding:3rem 1.5rem}
-h1,h2{margin-bottom:.75rem}
-.grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.card{background:#fff;border-radius:1rem;padding:1.25rem;box-shadow:0 8px 20px rgba(0,0,0,.1)}
-
-
-  .floating-buttons {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;   /* moved to left */
-  z-index: 999;
-  display: flex;
-  flex-direction: column; /* vertical alignment */
-  gap: 12px;
-}
-
-.float-btn {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 28px;
-  text-decoration: none;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.float-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* WhatsApp */
-.whatsapp {
-  background-color: #25D366;
-}
-
-/* Call */
-.call {
-  background-color: #007BFF;
-}
-
-/* ===== SLIDESHOW ===== */
-.slideshow{max-width:1100px;margin:2rem auto;position:relative;overflow:hidden;border-radius:12px}
-.slide{display:none}
-.slide.active{display:block}
-.slide-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;padding:.6rem .9rem;font-size:1.5rem;cursor:pointer}
-.slide-nav.prev{left:10px}
-.slide-nav.next{right:10px}
-
-  
-/* ===== COMPRESSORS GRID ===== */
+section { max-width:1100px; margin:auto; padding:3rem 1.5rem; }
+h1,h2 { margin-bottom:.75rem; }
 .compressors-grid { display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); margin-top:2rem; }
-.compressor-card { background:#fff; border-radius:12px; padding:1rem; text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:transform 0.3s, box-shadow 0.3s; }
+.compressor-card { background:#fff; border-radius:12px; padding:1rem; text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; }
 .compressor-card:hover { transform:translateY(-6px); box-shadow:0 12px 25px rgba(0,0,0,0.2); }
 .compressor-card img { width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:1rem; }
 .compressor-card h3 { font-size:1.1rem; margin-bottom:.5rem; }
 .compressor-card p { font-size:.9rem; color:#555; }
 
-  
-/* BRAND LOGO SLIDER */
-.brand-slider { 
-  background: #fff;
-  padding: 1.5rem 0;
-  text-align: center;
-}
-
-.brand-slider-wrapper { 
-  overflow: hidden;
-}
-
-.brand-track {
-  display: flex;
-  gap: 40px;
-  animation: scrollBrands 30s infinite;
-}
-
-.brand-track img {
-  height: 60px;
-  flex-shrink: 0;
-}
-
-/* Smooth continuous scroll */
-@keyframes scrollBrands {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-600%); }
-}
-
-/* Adjust speed: lower seconds → faster */
-
-/* Adjust speed: lower seconds → faster */
-
-/* ===== ACCESSORIES ===== */
-.accessories-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-.accessory-card{background:#fff;border-radius:10px;padding:12px;text-align:center;border:1px solid #e5e7eb}
-.accessory-card img{width:90px;height:90px;margin:auto;object-fit:contain}
-
 /* ===== FOOTER ===== */
-footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; margin-right: -5px;}
-.footer-inner{max-width:1100px;margin:auto;display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.footer-bottom{text-align:center;margin-top:1rem;font-size:.9rem}
+footer { background: linear-gradient(135deg, #ff7400, #ffb347); color:#fff; padding:3rem 1.5rem; font-family: 'Inter', sans-serif; margin-left:-5px; margin-right:-5px; }
+.footer-inner { max-width:1100px; margin:auto; display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+.footer-bottom { text-align:center; margin-top:2rem; font-size:.9rem; }
+
+/* ===== FLOATING BUTTONS ===== */
+.floating-buttons { position: fixed; bottom: 20px; right: 20px; z-index: 999; display: flex; flex-direction: column; gap:12px; }
+.float-btn { width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:28px; text-decoration:none; box-shadow:0 6px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.float-btn:hover { transform: scale(1.1); box-shadow:0 10px 20px rgba(0,0,0,0.4); }
+.whatsapp { background-color:#25D366; }
+.call { background-color:#007BFF; }
 
 /* ===== MOBILE ===== */
-@media(max-width:600px){
-.brand-wrap h3{font-size:1rem;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:600px) {
+  .brand-wrap h3 { font-size:1rem; max-width:160px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="brand-wrap">
       <div class="logo">
         <img src="logogeocomp.png" alt="Geocomp Systems Logo">
       </div>
-      <h3 style="display: flex; align-self: center; justify-self: center; text-align: center;">Geocomp Systems</h3>
+      <h3>Geocomp Systems</h3>
     </div>
     <button class="menu-btn" id="menuBtn">☰</button>
   </div>
 </header>
 
+<!-- FLOATING BUTTONS -->
 <div class="floating-buttons">
-  <!-- WhatsApp -->
   <a href="https://wa.me/1234567890" target="_blank" class="float-btn whatsapp">
     <i class='bx bxl-whatsapp'></i>
   </a>
-
-  <!-- Call -->
   <a href="tel:+1234567890" class="float-btn call">
     <i class='bx bx-phone-call'></i>
   </a>
 </div>
 
+<!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
-  <a href="#home">
-    <i class='bx bx-home'></i>
-    <span>Home</span>
-  </a>
-
-  <a href="#about">
-    <i class='bx bx-info-circle'></i>
-    <span>About</span>
-  </a>
-
-  <a href="#services">
-    <i class='bx bx-cog'></i>
-    <span>Services</span>
-  </a>
-
-  <a href="#accessories">
-    <i class='bx bx-package'></i>
-    <span>Accessories</span>
-  </a>
-
-  <a href="#contact">
-    <i class='bx bx-phone'></i>
-    <span>Contact</span>
-  </a>
+  <a href="index.html#home"><i class='bx bx-home'></i> Home</a>
+  <a href="index.html#about"><i class='bx bx-info-circle'></i> About</a>
+  <a href="index.html#services"><i class='bx bx-cog'></i> Services</a>
+  <a href="index.html#accessories"><i class='bx bx-package'></i> Accessories</a>
+  <a href="index.html#contact"><i class='bx bx-phone'></i> Contact</a>
 </div>
-
 <div class="overlay" id="overlay"></div>
 
-<!-- SLIDESHOW -->
-<div class="slideshow">
-  <img src="roll1.jpg" class="slide active" alt="">
-  <img src="roll2.jpg" class="slide" alt="">
-  <img src="roll4.jpg" class="slide" alt="">
-  <img src="roll5.jpg" class="slide" alt="">
-  <img src="roll6.jpg" class="slide" alt="">
-  <img src="roll7.jpg" class="slide" alt="">
-  <img src="roll8.jpg" class="slide" alt="">
-  <img src="roll9.png" class="slide" alt="">
-  <button class="slide-nav prev">❮</button>
-  <button class="slide-nav next">❯</button>
-</div>
-
-<section id="home">
-  <h1>Complete Compressed Air Ecosystem</h1>
-  <p>Industrial compressed air solutions across Kenya.</p>
-</section>
 <!-- PAGE CONTENT -->
 <section>
   <h1>Our Air Compressors</h1>
   <div class="compressors-grid">
     
     <div class="compressor-card">
-      <img src="compressor1.jpg" alt="Air Compressor 1">
-      <h3>Oil Injected Compressor</h3>
+      <img src="compressor1.jpg" alt="Oil Injected Compressor">
+      <h3><i class='bx bxs-cloud-upload' style="color:#FF7400;"></i> Oil Injected Compressor</h3>
       <p>High-performance oil-injected compressor for industrial use.</p>
     </div>
 
     <div class="compressor-card">
-      <img src="compressor2.jpg" alt="Air Compressor 2">
-      <h3>Oil Free Compressor</h3>
+      <img src="compressor2.jpg" alt="Oil Free Compressor">
+      <h3><i class='bx bxs-leaf' style="color:#32CD32;"></i> Oil Free Compressor</h3>
       <p>Clean, oil-free air for sensitive operations and labs.</p>
     </div>
 
     <div class="compressor-card">
-      <img src="compressor3.jpg" alt="Air Compressor 3">
-      <h3>Portable Compressor</h3>
+      <img src="compressor3.jpg" alt="Portable Compressor">
+      <h3><i class='bx bxs-wind' style="color:#1E90FF;"></i> Portable Compressor</h3>
       <p>Compact and mobile compressor for field operations.</p>
     </div>
 
     <div class="compressor-card">
-      <img src="compressor4.jpg" alt="Air Compressor 4">
-      <h3>Lubricated Compressor</h3>
+      <img src="compressor4.jpg" alt="Lubricated Compressor">
+      <h3><i class='bx bxs-cog' style="color:#FF8C00;"></i> Lubricated Compressor</h3>
       <p>Reliable, durable compressors for heavy-duty industrial use.</p>
     </div>
 
@@ -282,3 +160,21 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
       <form style="display:flex; flex-direction:column; gap:0.5rem;">
         <input type="email" placeholder="Enter your email" style="padding:0.5rem; border-radius:5px; border:none;">
         <button type="submit" style="background:#fff; color:#ff7400; font-weight:600; padding:0.5rem; border:none; border-radius:5px; cursor:pointer;">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Geocomp Systems Ltd | All Rights Reserved</div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+document.getElementById('menuBtn').onclick = overlay.onclick = () => {
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+};
+</script>
+
+</body>
+</html>
