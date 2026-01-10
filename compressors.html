@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Air Compressors | Geocomp Systems Ltd</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: Inter,sans-serif; background:#f8fafc; color:#0f172a; line-height:1.6; padding:0; }
+img { max-width:100%; display:block; }
+
+/* ===== HEADER ===== */
+header { position:sticky; top:0; z-index:100; background:#FF7400; opacity: 90%; margin-left:-5px; margin-right:-5px; box-shadow:0 3px 10px rgba(0,0,0,.15);}
+.header-inner { max-width:1200px; margin:auto; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+.brand-wrap { display:flex; align-items:center; gap:1rem; }
+.logo { width:104px; height:104px; display:flex; align-items:center; justify-content:center; }
+.brand-wrap h3 { font-size:1.2rem; font-weight:700; color:#fff; }
+.menu-btn { font-size:1.8rem; background:none; border:none; color:#fff; cursor:pointer; }
+
+/* ===== SIDEBAR ===== */
+.sidebar { position:fixed; top:0; right:0; width:230px; height:100vh; background:#ed9d5a; padding:2rem; transform:translateX(100%); transition:.35s; z-index:200; opacity:85%; }
+.sidebar.active { transform:translateX(0); }
+.sidebar a { display:block; padding:1rem 0; font-weight:600; color:#444; text-decoration:none; }
+.sidebar a:hover { color:#fff; }
+.overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; z-index:150; }
+.overlay.active { display:block; }
+
+/* ===== FLOATING BUTTONS ===== */
+.floating-buttons { position: fixed; bottom: 20px; left: 20px; z-index: 999; display:flex; flex-direction:column; gap:12px; }
+.float-btn { width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:28px; text-decoration:none; box-shadow:0 6px 15px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s; }
+.float-btn:hover { transform: scale(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+.float-btn.whatsapp { background:#25D366; }
+.float-btn.call { background:#007BFF; }
+
+/* ===== SECTIONS ===== */
+section { max-width:1100px; margin:auto; padding:3rem 1.5rem; }
+h1,h2 { margin-bottom:.75rem; text-align:center; }
+
+/* ===== COMPRESSORS GRID ===== */
+.compressors-grid { display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); margin-top:2rem; }
+.compressor-card { background:#fff; border-radius:12px; padding:1rem; text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:transform 0.3s, box-shadow 0.3s; }
+.compressor-card:hover { transform:translateY(-6px); box-shadow:0 12px 25px rgba(0,0,0,0.2); }
+.compressor-card img { width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:1rem; }
+.compressor-card h3 { font-size:1.1rem; margin-bottom:.5rem; }
+.compressor-card p { font-size:.9rem; color:#555; }
+
+/* ===== FOOTER ===== */
+footer { background: linear-gradient(135deg, #ff7400, #ffb347); color:#fff; padding:3rem 1.5rem; font-family: 'Inter', sans-serif; margin-top:2rem; }
+.footer-inner { max-width:1100px; margin:auto; display:grid; gap:2rem; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
+.footer-inner h4 { margin-bottom:1rem; }
+.footer-inner a { color:#fff; text-decoration:none; display:block; margin-bottom:0.5rem; }
+.footer-bottom { text-align:center; margin-top:2rem; font-size:.9rem; }
+
+/* ===== MOBILE ===== */
+@media(max-width:600px) { .brand-wrap h3 { font-size:1rem; max-width:160px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="brand-wrap">
+      <div class="logo">
+        <img src="logogeocomp.png" alt="Geocomp Systems Logo">
+      </div>
+      <h3>Geocomp Systems</h3>
+    </div>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <a href="index.html#home">Home</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#accessories">Accessories</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-buttons">
+  <a href="https://wa.me/1234567890" target="_blank" class="float-btn whatsapp"><i class='bx bxl-whatsapp'></i></a>
+  <a href="tel:+1234567890" class="float-btn call"><i class='bx bx-phone-call'></i></a>
+</div>
+
+<!-- PAGE CONTENT -->
+<section>
+  <h1>Our Air Compressors</h1>
+  <div class="compressors-grid">
+    
+    <div class="compressor-card">
+      <img src="compressor1.jpg" alt="Air Compressor 1">
+      <h3>Oil Injected Compressor</h3>
+      <p>High-performance oil-injected compressor for industrial use.</p>
+    </div>
+
+    <div class="compressor-card">
+      <img src="compressor2.jpg" alt="Air Compressor 2">
+      <h3>Oil Free Compressor</h3>
+      <p>Clean, oil-free air for sensitive operations and labs.</p>
+    </div>
+
+    <div class="compressor-card">
+      <img src="compressor3.jpg" alt="Air Compressor 3">
+      <h3>Portable Compressor</h3>
+      <p>Compact and mobile compressor for field operations.</p>
+    </div>
+
+    <div class="compressor-card">
+      <img src="compressor4.jpg" alt="Air Compressor 4">
+      <h3>Lubricated Compressor</h3>
+      <p>Reliable, durable compressors for heavy-duty industrial use.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <h4>Contact Us</h4>
+      <p><i class='bx bx-phone'></i> 0738 010 275</p>
+      <p><i class='bx bx-phone'></i> 020 356 9848</p>
+      <p><i class='bx bx-envelope'></i> info@geocompsystems.co.ke</p>
+      <p><i class='bx bx-envelope'></i> geocompsystemsltd@gmail.com</p>
+      <p><i class='bx bx-map'></i> Industrial Area, Nairobi, Kenya</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#accessories">Accessories</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <a href="#"><i class='bx bxl-facebook'></i></a>
+      <a href="#"><i class='bx bxl-twitter'></i></a>
+      <a href="#"><i class='bx bxl-linkedin'></i></a>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+    </div>
+    <div>
+      <h4>Newsletter</h4>
+      <form style="display:flex; flex-direction:column; gap:0.5rem;">
+        <input type="email" placeholder="Enter your email" style="padding:0.5rem; border-radius:5px; border:none;">
+        <button type="submit" style="background:#fff; color:#ff7400; font-weight:600; padding:0.5rem; border:none; border-radius:5px; cursor:pointer;">Subscribe</button>
