@@ -210,6 +210,22 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 @media(max-width:600px){
 .brand-wrap h3{font-size:1rem;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
+  /* Scroll slideshow container */
+.scroll-slides {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+/* Each section becomes a slide */
+.scroll-slides section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 </style>
 </head>
 
@@ -289,6 +305,8 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
   <button class="slide-nav next">❯</button>
 </div>
 
+<div class="scroll-slides">
+  
 <section id="home">
   <h1>Complete Compressed Air Ecosystem</h1>
   <p>Industrial compressed air solutions across Kenya.</p>
@@ -338,6 +356,8 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
   </div>
 </section>
 
+</div>
+  
 <div id="adminPanel" style="display: ; background:#fff; padding:1rem; max-width:1100px; margin:auto;">
   <h3>Admin Login</h3>
   <input id="email" placeholder="Email"><br><br>
@@ -689,6 +709,7 @@ Message: ${data.get("message")}
 
 </body>
 </html>
+
 
 
 
