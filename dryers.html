@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Air Dryers | Geocomp Systems Ltd</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Boxicons -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:#f8fafc;color:#0f172a;padding:5px;line-height:1.6}
+img{max-width:100%;display:block}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:#FF7400;opacity:.9;margin-left:-5px;margin-right:-5px;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+.header-inner{max-width:1200px;margin:auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.brand-wrap{display:flex;align-items:center;gap:1rem}
+.logo{width:104px;height:104px}
+.brand-wrap h3{color:#fff;font-weight:700}
+.menu-btn{font-size:1.8rem;background:none;border:none;color:#fff;cursor:pointer}
+
+/* SIDEBAR */
+.sidebar{position:fixed;top:0;right:0;width:230px;height:100vh;background:#ed9d5a;padding:2rem;transform:translateX(100%);transition:.35s;z-index:200}
+.sidebar.active{transform:translateX(0)}
+.sidebar a{display:flex;align-items:center;gap:10px;padding:1rem 0;color:#444;font-weight:600;text-decoration:none}
+.sidebar a:hover{color:#fff}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:150}
+.overlay.active{display:block}
+
+/* FLOATING BUTTONS */
+.floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:12px;z-index:999}
+.float-btn{width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-decoration:none;box-shadow:0 6px 15px rgba(0,0,0,.3)}
+.whatsapp{background:#25D366}
+.call{background:#007BFF}
+
+/* PAGE CONTENT */
+section{max-width:1100px;margin:auto;padding:3rem 1.5rem}
+.dryers-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:2rem}
+.dryer-card{background:#fff;border-radius:12px;padding:1rem;text-align:center;box-shadow:0 6px 15px rgba(0,0,0,.1);transition:.3s}
+.dryer-card:hover{transform:translateY(-6px);box-shadow:0 12px 25px rgba(0,0,0,.2)}
+.dryer-card img{height:180px;width:100%;object-fit:cover;border-radius:8px;margin-bottom:1rem}
+.dryer-card h3{margin-bottom:.5rem}
+
+/* FOOTER */
+footer{background:linear-gradient(135deg,#ff7400,#ffb347);color:#fff;padding:3rem 1.5rem;margin-left:-5px;margin-right:-5px}
+.footer-inner{max-width:1100px;margin:auto;display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.footer-bottom{text-align:center;margin-top:2rem;font-size:.9rem}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="brand-wrap">
+      <div class="logo"><img src="logogeocomp.png" alt=""></div>
+      <h3>Geocomp Systems</h3>
+    </div>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-buttons">
+  <a href="https://wa.me/1234567890" class="float-btn whatsapp"><i class='bx bxl-whatsapp'></i></a>
+  <a href="tel:+1234567890" class="float-btn call"><i class='bx bx-phone-call'></i></a>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <a href="index.html#home"><i class='bx bx-home'></i>Home</a>
+  <a href="index.html#about"><i class='bx bx-info-circle'></i>About</a>
+  <a href="index.html#services"><i class='bx bx-cog'></i>Services</a>
+  <a href="index.html#accessories"><i class='bx bx-package'></i>Accessories</a>
+  <a href="index.html#contact"><i class='bx bx-phone'></i>Contact</a>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- PAGE CONTENT -->
+<section>
+  <h1>Our Air Dryers</h1>
+  <p>High-quality air dryers designed to remove moisture and protect your compressed air systems.</p>
+
+  <div class="dryers-grid">
+
+    <div class="dryer-card">
+      <img src="dryer1.jpg" alt="Refrigerated Air Dryer">
+      <h3><i class='bx bxs-tornado' style="color:#1E90FF;"></i> Refrigerated Air Dryer</h3>
+      <p>Efficient moisture removal for industrial compressed air.</p>
+    </div>
+
+    <div class="dryer-card">
+      <img src="dryer2.jpg" alt="Desiccant Air Dryer">
+      <h3><i class='bx bxs-droplet-half' style="color:#32CD32;"></i> Desiccant Air Dryer</h3>
+      <p>Ultra-dry air for critical and sensitive applications.</p>
+    </div>
+
+    <div class="dryer-card">
+      <img src="dryer3.jpg" alt="Heatless Dryer">
+      <h3><i class='bx bxs-wind' style="color:#00BFFF;"></i> Heatless Dryer</h3>
+      <p>Energy-efficient drying without external heating.</p>
+    </div>
+
+    <div class="dryer-card">
+      <img src="dryer4.jpg" alt="Heated Dryer">
+      <h3><i class='bx bxs-hot' style="color:#FF4500;"></i> Heated Dryer</h3>
+      <p>High-performance drying for demanding environments.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Contact Us</h4>
+      <p><i class='bx bx-phone'></i> 0738 010 275</p>
+      <p><i class='bx bx-envelope'></i> info@geocompsystems.co.ke</p>
+      <p><i class='bx bx-map'></i> Industrial Area, Nairobi</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html#home">Home</a><br>
+      <a href="index.html#services">Services</a>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <i class='bx bxl-facebook'></i>
+      <i class='bx bxl-linkedin'></i>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Geocomp Systems Ltd | All Rights Reserved</div>
+</footer>
+
+<script>
+const sidebar=document.getElementById('sidebar');
+const overlay=document.getElementById('overlay');
+menuBtn.onclick=overlay.onclick=()=>{
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+};
+</script>
+
+</body>
+</html>
