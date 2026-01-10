@@ -115,6 +115,66 @@ h1,h2{margin-bottom:.75rem}
   100% { transform: translateX(-600%); }
 }
 
+#quote {
+  max-width: 700px;
+  margin: auto;
+}
+
+.quote-form {
+  margin-top: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+  background: #f1f5f9;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+}
+
+.form-group i {
+  font-size: 1.3rem;
+  color: #FF7400;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.form-group.textarea {
+  align-items: flex-start;
+}
+
+.quote-form button {
+  width: 100%;
+  background: #FF7400;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quote-form button:hover {
+  background: #e56700;
+}
+
+  
 /* Adjust speed: lower seconds → faster */
 
 /* Adjust speed: lower seconds → faster */
@@ -408,6 +468,59 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 
   </div>
 
+<section id="quote">
+  <h2>Request a Quote</h2>
+  <p>Please fill in the form below and our team will get back to you promptly.</p>
+
+  <form onsubmit="sendWhatsAppQuote(event)" class="quote-form">
+    
+
+    <div class="form-group">
+      <i class='bx bx-user'></i>
+      <input type="text" name="name" placeholder="Full Name" required>
+    </div>
+
+    <div class="form-group">
+      <i class='bx bx-envelope'></i>
+      <input type="email" name="email" placeholder="Email Address" required>
+    </div>
+
+    <div class="form-group">
+      <i class='bx bx-phone'></i>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+    </div>
+
+    <div class="form-group">
+      <i class='bx bx-building'></i>
+      <input type="text" name="company" placeholder="Company Name (Optional)">
+    </div>
+
+    <div class="form-group">
+      <i class='bx bx-category'></i>
+      <select name="service" required>
+        <option value="">Select Service</option>
+        <option>Air Compressors</option>
+        <option>Air Dryers</option>
+        <option>Filtration</option>
+        <option>Maintenance & Service</option>
+        <option>Spare Parts</option>
+      </select>
+    </div>
+
+    <div class="form-group textarea">
+      <i class='bx bx-message-detail'></i>
+      <textarea name="message" rows="4" placeholder="Describe your requirements" required></textarea>
+    </div>
+
+    <button type="submit">
+      <i class='bx bx-send'></i> Request Quote
+    </button>
+
+  </form>
+</section>
+
+
+  
   <div class="footer-bottom" style="text-align:center; margin-top:2rem; font-size:.9rem;">
     © 2026 Geocomp Systems Ltd | All Rights Reserved
   </div>
@@ -543,9 +656,24 @@ loadImages();
 </script>
 
   </script>
+<script>
+function sendWhatsAppQuote(e) {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const msg = `
+Quote Request:
+Name: ${data.get("name")}
+Phone: ${data.get("phone")}
+Service: ${data.get("service")}
+Message: ${data.get("message")}
+`;
+  window.open(`https://wa.me/254XXXXXXXX?text=${encodeURIComponent(msg)}`, "_blank");
+}
+</script>
 
 </body>
 </html>
+
 
 
 
