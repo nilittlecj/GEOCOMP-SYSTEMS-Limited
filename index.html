@@ -10,7 +10,7 @@
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 
-  
+
 <style>
 /* ===== RESET ===== */
 *{box-sizing:border-box;margin:0;padding:0}
@@ -210,89 +210,21 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 @media(max-width:600px){
 .brand-wrap h3{font-size:1rem;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
-  
-/* Horizontal scroll container */
+  /* Scroll slideshow container */
 .scroll-slides {
-  display: flex;
-  overflow-x: hidden; /* We'll handle scrolling via JS */
-  width: 100vw;
   height: 100vh;
-  position: relative;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
 }
 
 /* Each section becomes a slide */
 .scroll-slides section {
-  min-width: 100vw;
-  height: 100vh;
-  flex-shrink: 0;          /* Prevent shrinking */
+  min-height: 100vh;
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  scroll-snap-align: start;
-  transition: transform 0.5s ease, background-color 0.5s ease;
-  padding: 2rem;
-  box-sizing: border-box;
-  text-align: center;
 }
-
-/* Sample gradients */
-.scroll-slides section:nth-child(odd) {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
-  color: white;
-}
-
-.scroll-slides section:nth-child(even) {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white;
-}
-
-/* Cards inside services section */
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.card {
-  background: rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  width: 200px;
-  transition: transform 0.3s, background 0.3s;
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  background: rgba(255,255,255,0.2);
-}
-
-/* Navigation arrows */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background: rgba(0,0,0,0.3);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 5px;
-}
-
-.arrow.left {
-  left: 20px;
-}
-
-.arrow.right {
-  right: 20px;
-}
-
 
 </style>
 </head>
@@ -358,7 +290,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
   <i class='bx bxl-telegram'></i> Request a Quote
 </a>
 
-  
+
 <!-- SLIDESHOW -->
 <div class="slideshow">
   <img src="roll1.jpg" class="slide active" alt="">
@@ -374,7 +306,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 </div>
 
 <div class="scroll-slides">
-  
+
 <section id="home">
   <h1>Complete Compressed Air Ecosystem</h1>
   <p>Industrial compressed air solutions across Kenya.</p>
@@ -421,13 +353,14 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
       <p>Installation, repair & servicing.</p>
     </div>
 
+  </div>
 
 </section>
 
   </div>
   
 </div>
-  
+
 <div id="adminPanel" style="display: ; background:#fff; padding:1rem; max-width:1100px; margin:auto;">
   <h3>Admin Login</h3>
   <input id="email" placeholder="Email"><br><br>
@@ -438,12 +371,12 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 </div>
 
 
-  
+
 <section id="accessories">
   <h2>Accessories & Spare Parts</h2>
 <div class="accessories-grid" id="accessoriesGrid">
 
-  
+
 </div>
 
   <!-- <div class="accessories-grid">
@@ -506,7 +439,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
       <img src="compairlogo.png" alt="Brand 12">
       <img src="atlascopco.gif" alt="Brand 13">
       <img src="xirlogo-header.png.pagespeed.ic_.U9xB4aYIK9.png" alt="Brand 14">
-      
+
       <!-- Duplicate logos for smooth infinite scroll -->
       <img src="abac_logo_tcm1159-633155.gif" alt="Brand 1">
       <img src="tranelogo.png" alt="Brand 2">
@@ -527,7 +460,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 <!-- FOOTER -->
 <footer id="contact" style="background: linear-gradient(135deg, #ff7400, #ffb347); color: #fff; padding: 3rem 1.5rem; font-family: 'Inter', sans-serif;">
   <div class="footer-inner" style="max-width:1100px; margin:auto; display:grid; gap:2rem; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));">
-    
+
     <!-- Contact Info -->
     <div>
       <h4 style="margin-bottom:1rem;">Contact Us</h4>
@@ -537,7 +470,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
       <p><i class='bx bx-envelope'></i> geocompsystemsltd@gmail.com</p>
       <p><i class='bx bx-map'></i> Industrial Area, Nairobi, Kenya</p>
     </div>
-    
+
     <!-- Quick Links -->
     <div>
       <h4 style="margin-bottom:1rem;">Quick Links</h4>
@@ -567,7 +500,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
       <a href="#" style="color:#fff; font-size:1.5rem; margin-right:10px;"><i class='bx bxl-instagram-alt'></i></a>
     </div>
 
- 
+
   </div>
 
 <section id="quote">
@@ -575,7 +508,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
   <p>Please fill in the form below and our team will get back to you promptly.</p>
 
   <form onsubmit="sendWhatsAppQuote(event)" class="quote-form">
-    
+
 
     <div class="form-group">
       <i class='bx bx-user'></i>
@@ -615,7 +548,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
     </div>
 
     <button type="submit">
-      
+
       <a href="#quote" class="quote-btn">
   <i class='bx bxl-telegram'></i> Request a Quote
 </a>
@@ -626,7 +559,7 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 </section>
 
 
-  
+
   <div class="footer-bottom" style="text-align:center; margin-top:2rem; font-size:.9rem;">
     © 2026 Geocomp Systems Ltd | All Rights Reserved
   </div>
@@ -657,7 +590,7 @@ setInterval(()=>{index=(index+1)%slides.length;show(index)},4000);
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.getElementById('brandTrack');
   let slideWidth = track.offsetWidth / 2; // Half the width of the track (because logos are duplicated)
-  
+
   // Function to scroll the brand logos
   function scrollLogos() {
     track.style.transition = 'transform 0.5s ease-in-out';
@@ -700,7 +633,7 @@ const storage = getStorage(app);
 
 window.firebaseServices = { auth, db, storage, signInWithEmailAndPassword, collection, addDoc, getDocs, deleteDoc, doc, ref, uploadBytes, getDownloadURL, deleteObject };
 
-  
+
   <script type="module">
 const {
   auth, db, storage,
@@ -775,98 +708,9 @@ Message: ${data.get("message")}
 `;
   window.open(`https://wa.me/254XXXXXXXX?text=${encodeURIComponent(msg)}`, "_blank");
 }
-
-  const slider = document.getElementById('slider');
-const slides = slider.querySelectorAll('section');
-const nextBtn = document.getElementById('next');
-const prevBtn = document.getElementById('prev');
-
-let currentIndex = 0;
-
-function showSlide(index) {
-  if(index < 0) index = 0;
-  if(index >= slides.length) index = slides.length - 1;
-  currentIndex = index;
-  const offset = slides[index].offsetLeft;
-  slider.scrollTo({ left: offset, behavior: 'smooth' });
-}
-
-nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
-prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
-
-/* Optional: swipe support for touch devices */
-let startX = 0;
-slider.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX;
-});
-
-slider.addEventListener('touchend', e => {
-  let endX = e.changedTouches[0].clientX;
-  if(endX < startX - 50) showSlide(currentIndex + 1); // swipe left
-  if(endX > startX + 50) showSlide(currentIndex - 1); // swipe right
-});
-
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
