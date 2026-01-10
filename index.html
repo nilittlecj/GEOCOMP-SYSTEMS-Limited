@@ -211,53 +211,88 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 .brand-wrap h3{font-size:1rem;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
   
-/* Horizontal scroll slideshow container */
+/* Horizontal scroll container */
 .scroll-slides {
-  display: flex;                 /* Make sections line up horizontally */
-  overflow-y: auto;              /* Horizontal scrolling */
-  scroll-snap-type: x mandatory; /* Snap to each section */
-  scroll-behavior: smooth;       /* Smooth scroll when snapping */
-  height: 100vh;
+  display: flex;
+  overflow-x: hidden; /* We'll handle scrolling via JS */
   width: 100vw;
-  /* Hide scrollbar for aesthetics */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
-}
-
-.scroll-slides::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  height: 100vh;
+  position: relative;
 }
 
 /* Each section becomes a slide */
 .scroll-slides section {
-  min-width: 100vw;             /* Full viewport width */
-  height: 100vh;                /* Full viewport height */
-  scroll-snap-align: start;     /* Snap point */
+  min-width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;          /* Prevent shrinking */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: start;
   transition: transform 0.5s ease, background-color 0.5s ease;
-  
-  /* Creative touches */
-  font-size: 2rem;
-  color: white;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-/* Optional: different colors for each slide */
+/* Sample gradients */
 .scroll-slides section:nth-child(odd) {
   background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
 }
 
 .scroll-slides section:nth-child(even) {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
 }
 
-/* Optional: subtle hover zoom effect for fun */
-.scroll-slides section:hover {
-  transform: scale(1.05);
+/* Cards inside services section */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
+
+.card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 200px;
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.2);
+}
+
+/* Navigation arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
 
 </style>
 </head>
@@ -740,10 +775,42 @@ Message: ${data.get("message")}
 `;
   window.open(`https://wa.me/254XXXXXXXX?text=${encodeURIComponent(msg)}`, "_blank");
 }
+
+  const slider = document.getElementById('slider');
+const slides = slider.querySelectorAll('section');
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
+
+let currentIndex = 0;
+
+function showSlide(index) {
+  if(index < 0) index = 0;
+  if(index >= slides.length) index = slides.length - 1;
+  currentIndex = index;
+  const offset = slides[index].offsetLeft;
+  slider.scrollTo({ left: offset, behavior: 'smooth' });
+}
+
+nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+
+/* Optional: swipe support for touch devices */
+let startX = 0;
+slider.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+});
+
+slider.addEventListener('touchend', e => {
+  let endX = e.changedTouches[0].clientX;
+  if(endX < startX - 50) showSlide(currentIndex + 1); // swipe left
+  if(endX > startX + 50) showSlide(currentIndex - 1); // swipe right
+});
+
 </script>
 
 </body>
 </html>
+
 
 
 
