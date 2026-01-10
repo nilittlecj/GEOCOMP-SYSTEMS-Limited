@@ -20,13 +20,11 @@
 }
 
 body {
-  font-family: Inter, sans-serif;
-  padding: 5px;
-  padding-top: 0;
-  padding-bottom: 0;
+  font-family: 'Inter', sans-serif;
   background: #f8fafc;
   color: #0f172a;
   line-height: 1.6;
+  padding: 0 5px;
 }
 
 img {
@@ -46,10 +44,11 @@ header {
   top: 0;
   z-index: 100;
   background: #FF7400;
-  opacity: 0.9;
+  opacity: 0.95;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
   margin-left: -5px;
   margin-right: -5px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .header-inner {
@@ -78,29 +77,33 @@ header {
 .brand-wrap h3 {
   font-size: 1.2rem;
   font-weight: 700;
+  color: #fff;
 }
 
 .menu-btn {
   font-size: 1.8rem;
-  background: none;
-  border: none;
   color: #fff;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
 }
 
 /* ===== SIDEBAR ===== */
 .sidebar {
   position: fixed;
   top: 0;
-  opacity: 0.85;
   right: 0;
   width: 230px;
   height: 100vh;
   background: #ed9d5a;
   padding: 2rem;
   transform: translateX(100%);
-  transition: 0.35s;
+  transition: transform 0.35s ease;
   z-index: 200;
+  opacity: 0.95;
 }
 
 .sidebar.active {
@@ -113,6 +116,7 @@ header {
   font-weight: 600;
   color: #444;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .sidebar a:hover {
@@ -138,10 +142,15 @@ section {
   padding: 3rem 1.5rem;
 }
 
-h1,
-h2 {
-  margin-bottom: 0.75rem;
+h1, h2 {
+  margin-bottom: 1rem;
   text-align: center;
+  color: #1f2937;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
 }
 
 /* ===== GRID & CARDS ===== */
@@ -154,9 +163,9 @@ h2 {
 .card {
   background: #fff;
   border-radius: 1rem;
-  padding: 1.25rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -165,10 +174,11 @@ h2 {
   height: 120px;
   object-fit: contain;
   margin-bottom: 1rem;
+  transition: transform 0.3s ease;
 }
 
 .card h3 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
@@ -178,13 +188,17 @@ h2 {
 
 .card p {
   font-size: 0.95rem;
-  color: #4b5563; /* slightly darker gray for text */
+  color: #4b5563;
 }
 
-/* Hover effect for cards */
+/* Card hover effects */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover img {
+  transform: scale(1.05);
 }
 
 /* ===== FLOATING BUTTONS ===== */
@@ -254,15 +268,11 @@ h2 {
   padding: 0.6rem 0.9rem;
   font-size: 1.5rem;
   cursor: pointer;
+  border-radius: 50%;
 }
 
-.slide-nav.prev {
-  left: 10px;
-}
-
-.slide-nav.next {
-  right: 10px;
-}
+.slide-nav.prev { left: 10px; }
+.slide-nav.next { right: 10px; }
 
 /* ===== BRAND LOGO SLIDER ===== */
 .brand-slider {
@@ -286,13 +296,10 @@ h2 {
   flex-shrink: 0;
 }
 
+/* Smooth scroll */
 @keyframes scrollBrands {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-600%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-600%); }
 }
 
 /* ===== QUOTE FORM ===== */
@@ -350,7 +357,6 @@ h2 {
   font-size: 0.9rem;
   font-weight: 600;
   margin-top: 15px;
-  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -362,20 +368,20 @@ h2 {
 .quote-btn:hover {
   background: #FF7400;
   color: #fff;
-  box-shadow: 0 6px 14px rgba(255, 116, 0, 0.35);
+  box-shadow: 0 6px 14px rgba(255,116,0,0.35);
   transform: translateY(-2px);
 }
 
 .quote-btn:active {
   transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(255, 116, 0, 0.25);
+  box-shadow: 0 3px 8px rgba(255,116,0,0.25);
 }
 
 /* ===== ACCESSORIES ===== */
 .accessories-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
 }
 
 .accessory-card {
@@ -384,6 +390,7 @@ h2 {
   padding: 12px;
   text-align: center;
   border: 1px solid #e5e7eb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .accessory-card img {
@@ -391,6 +398,11 @@ h2 {
   height: 90px;
   margin: auto;
   object-fit: contain;
+}
+
+.accessory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* ===== FOOTER ===== */
@@ -417,7 +429,7 @@ footer {
 }
 
 /* ===== MOBILE ===== */
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .brand-wrap h3 {
     font-size: 1rem;
     max-width: 160px;
@@ -431,6 +443,7 @@ footer {
     height: 100px;
   }
 }
+
 
 </style>
 </head>
