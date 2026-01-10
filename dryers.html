@@ -13,40 +13,188 @@
 
 <style>
 /* ===== RESET ===== */
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,sans-serif;padding: 5px; padding-top: 0; padding-bottom: 0;background:#f8fafc;color:#0f172a;line-height:1.6}
-img{max-width:100%;display:block}
-button{background: none; border: none;}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  padding: 5px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #f8fafc;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 /* ===== HEADER ===== */
-header{position:sticky;top:0;z-index:100;background:#FF7400; opacity: 90%;margin-left: -5px; margin-right: -5px;box-shadow:0 3px 10px rgba(0,0,0,.15)}
-.header-inner{max-width:1200px;margin:auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
-.brand-wrap{display:flex;align-items:center;gap:1rem}
-.logo{width:104px;height:104px;display:flex;align-items:center;justify-content:center}
-.brand-wrap h3{font-size:1.2rem;font-weight:700}
-.menu-btn{font-size:1.8rem;background:none;border:none;color:#fff;cursor:pointer}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FF7400;
+  opacity: 0.9;
+  margin-left: -5px;
+  margin-right: -5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 104px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-wrap h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.menu-btn {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
 
 /* ===== SIDEBAR ===== */
-.sidebar{position:fixed;top:0;opacity: 85%; right:0;width:230px;height:100vh;background:#ed9d5a;padding:2rem;transform:translateX(100%);transition:.35s;z-index:200}
-.sidebar.active{transform:translateX(0)}
-.sidebar a{display:block;padding:1rem 0;font-weight:600;color:#444;text-decoration:none}
-.sidebar a:hover{color:#fff}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:150}
-.overlay.active{display:block}
+.sidebar {
+  position: fixed;
+  top: 0;
+  opacity: 0.85;
+  right: 0;
+  width: 230px;
+  height: 100vh;
+  background: #ed9d5a;
+  padding: 2rem;
+  transform: translateX(100%);
+  transition: 0.35s;
+  z-index: 200;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar a {
+  display: block;
+  padding: 1rem 0;
+  font-weight: 600;
+  color: #444;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #fff;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 150;
+}
+
+.overlay.active {
+  display: block;
+}
 
 /* ===== SECTIONS ===== */
-section{max-width:1100px;margin:auto;padding:3rem 1.5rem}
-h1,h2{margin-bottom:.75rem}
-.grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.card{background:#fff;border-radius:1rem;padding:1.25rem;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+}
 
+h1,
+h2 {
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
 
-  .floating-buttons {
+/* ===== GRID & CARDS ===== */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #4b5563; /* slightly darker gray for text */
+}
+
+/* Hover effect for cards */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== FLOATING BUTTONS ===== */
+.floating-buttons {
   position: fixed;
   bottom: 20px;
-  right: 20px;   /* moved to left */
+  right: 20px;
   z-index: 999;
   display: flex;
-  flex-direction: column; /* vertical alignment */
+  flex-direction: column;
   gap: 12px;
 }
 
@@ -80,28 +228,57 @@ h1,h2{margin-bottom:.75rem}
 }
 
 /* ===== SLIDESHOW ===== */
-.slideshow{max-width:1100px;margin:2rem auto;position:relative;overflow:hidden;border-radius:12px}
-.slide{display:none}
-.slide.active{display:block}
-.slide-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;padding:.6rem .9rem;font-size:1.5rem;cursor:pointer}
-.slide-nav.prev{left:10px}
-.slide-nav.next{right:10px}
+.slideshow {
+  max-width: 1100px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
 
-/* BRAND LOGO SLIDER */
-.brand-slider { 
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.slide-nav.prev {
+  left: 10px;
+}
+
+.slide-nav.next {
+  right: 10px;
+}
+
+/* ===== BRAND LOGO SLIDER ===== */
+.brand-slider {
   background: #fff;
   padding: 1.5rem 0;
   text-align: center;
 }
 
-.brand-slider-wrapper { 
+.brand-slider-wrapper {
   overflow: hidden;
 }
 
 .brand-track {
   display: flex;
   gap: 40px;
-  animation: scrollBrands 30s infinite;
+  animation: scrollBrands 30s linear infinite;
 }
 
 .brand-track img {
@@ -109,12 +286,16 @@ h1,h2{margin-bottom:.75rem}
   flex-shrink: 0;
 }
 
-/* Smooth continuous scroll */
 @keyframes scrollBrands {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-600%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-600%);
+  }
 }
 
+/* ===== QUOTE FORM ===== */
 #quote {
   max-width: 700px;
   margin: auto;
@@ -125,7 +306,7 @@ h1,h2{margin-bottom:.75rem}
   background: #fff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -156,7 +337,7 @@ h1,h2{margin-bottom:.75rem}
 .form-group.textarea {
   align-items: flex-start;
 }
-/* Quote Label Button */
+
 .quote-btn {
   display: inline-flex;
   align-items: center;
@@ -165,7 +346,7 @@ h1,h2{margin-bottom:.75rem}
   background: #fff;
   color: #FF7400;
   border: 2px solid #FF7400;
-  border-radius: 999px; /* pill style */
+  border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 600;
   margin-top: 15px;
@@ -174,42 +355,83 @@ h1,h2{margin-bottom:.75rem}
   transition: all 0.3s ease;
 }
 
-/* Icon */
 .quote-btn i {
   font-size: 1.1rem;
 }
 
-/* Hover effect */
 .quote-btn:hover {
   background: #FF7400;
   color: #fff;
-  box-shadow: 0 6px 14px rgba(255,116,0,0.35);
+  box-shadow: 0 6px 14px rgba(255, 116, 0, 0.35);
   transform: translateY(-2px);
 }
 
-/* Active click */
 .quote-btn:active {
   transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(255,116,0,0.25);
+  box-shadow: 0 3px 8px rgba(255, 116, 0, 0.25);
 }
-/* Adjust speed: lower seconds → faster */
-
-/* Adjust speed: lower seconds → faster */
 
 /* ===== ACCESSORIES ===== */
-.accessories-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-.accessory-card{background:#fff;border-radius:10px;padding:12px;text-align:center;border:1px solid #e5e7eb}
-.accessory-card img{width:90px;height:90px;margin:auto;object-fit:contain}
+.accessories-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.accessory-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.accessory-card img {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  object-fit: contain;
+}
 
 /* ===== FOOTER ===== */
-footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; margin-right: -5px;}
-.footer-inner{max-width:1100px;margin:auto;display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.footer-bottom{text-align:center;margin-top:1rem;font-size:.9rem}
+footer {
+  background: #ff7400;
+  color: #555;
+  padding: 2rem 1.5rem;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
 
 /* ===== MOBILE ===== */
-@media(max-width:600px){
-.brand-wrap h3{font-size:1rem;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width: 600px) {
+  .brand-wrap h3 {
+    font-size: 1rem;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card img {
+    width: 100px;
+    height: 100px;
+  }
 }
+
 </style>
 </head>
 
@@ -242,40 +464,29 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 </div>
 <div class="overlay" id="overlay"></div>
 
-<!-- PAGE CONTENT -->
-<section class="py-12 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Air Dryers</h1>
+<section>
+  <h1>Our Air Dryers</h1>
 
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="grid">
+    <!-- Refrigerated Air Dryer -->
+    <div class="card">
+      <img src="refrigerated_dryer.jpg" alt="Refrigerated Air Dryer">
+      <h3><i class='bx bxs-snow' style="color:#1E90FF;"></i> Refrigerated Dryer</h3>
+      <p>Efficient moisture removal for industrial compressed air systems, keeping your equipment safe and dry.</p>
+    </div>
 
-      <!-- Refrigerated Air Dryer -->
-      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
-        <img src="refrigerated_dryer.jpg" alt="Refrigerated Air Dryer" class="w-32 h-32 object-contain mb-4">
-        <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
-          <i class='bx bxs-snow' style="color:#1E90FF;"></i> Refrigerated Dryer
-        </h3>
-        <p class="text-gray-600">Efficient moisture removal for industrial compressed air systems, keeping your equipment safe and dry.</p>
-      </div>
+    <!-- Desiccant Air Dryer -->
+    <div class="card">
+      <img src="desiccant_dryer.jpg" alt="Desiccant Air Dryer">
+      <h3><i class='bx bxs-droplet-half' style="color:#32CD32;"></i> Desiccant Dryer</h3>
+      <p>Advanced desiccant technology removes moisture to extremely low dew points for critical applications.</p>
+    </div>
 
-      <!-- Desiccant Air Dryer -->
-      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
-        <img src="desiccant_dryer.jpg" alt="Desiccant Air Dryer" class="w-32 h-32 object-contain mb-4">
-        <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
-          <i class='bx bxs-droplet-half' style="color:#32CD32;"></i> Desiccant Dryer
-        </h3>
-        <p class="text-gray-600">Advanced desiccant technology removes moisture to extremely low dew points for critical applications.</p>
-      </div>
-
-      <!-- Heatless Air Dryer -->
-      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
-        <img src="heatless_dryer.jpg" alt="Heatless Air Dryer" class="w-32 h-32 object-contain mb-4">
-        <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
-          <i class='bx bxs-flame' style="color:#FF7400;"></i> Heatless Dryer
-        </h3>
-        <p class="text-gray-600">Reliable, energy-efficient drying for applications requiring extremely dry air without using heat.</p>
-      </div>
-
+    <!-- Heatless Air Dryer -->
+    <div class="card">
+      <img src="heatless_dryer.jpg" alt="Heatless Air Dryer">
+      <h3><i class='bx bxs-flame' style="color:#FF7400;"></i> Heatless Dryer</h3>
+      <p>Reliable, energy-efficient drying for applications requiring extremely dry air without using heat.</p>
     </div>
   </div>
 </section>
