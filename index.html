@@ -156,25 +156,41 @@ h1,h2{margin-bottom:.75rem}
 .form-group.textarea {
   align-items: flex-start;
 }
+/* Quote Label Button */
+.quote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.55rem 1.2rem;
+  background: #fff;
+  color: #FF7400;
+  border: 2px solid #FF7400;
+  border-radius: 999px; /* pill style */
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-.quote-form button {
-  width: 100%;
+/* Icon */
+.quote-btn i {
+  font-size: 1.1rem;
+}
+
+/* Hover effect */
+.quote-btn:hover {
   background: #FF7400;
   color: #fff;
-  border: none;
-  padding: 0.8rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+  box-shadow: 0 6px 14px rgba(255,116,0,0.35);
+  transform: translateY(-2px);
 }
 
-.quote-form button:hover {
-  background: #e56700;
+/* Active click */
+.quote-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(255,116,0,0.25);
 }
-
-  
 /* Adjust speed: lower seconds → faster */
 
 /* Adjust speed: lower seconds → faster */
@@ -253,8 +269,8 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 
 <div class="overlay" id="overlay"></div>
 
-    <a href="#quote" class="quote-btn">
-  <i class='bx bx-file'></i> Request a Quote
+<a href="#quote" class="quote-btn">
+  <i class='bx bxl-telegram'></i> Request a Quote
 </a>
 
   
@@ -680,6 +696,7 @@ Message: ${data.get("message")}
 
 </body>
 </html>
+
 
 
 
