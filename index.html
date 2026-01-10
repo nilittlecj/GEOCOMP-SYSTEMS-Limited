@@ -210,10 +210,11 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 @media(max-width:600px){
 .brand-wrap h3{font-size:1rem;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
+  
 /* Horizontal scroll slideshow container */
 .scroll-slides {
   display: flex;                 /* Make sections line up horizontally */
-  overflow-x: auto;              /* Horizontal scrolling */
+  overflow-y: auto;              /* Horizontal scrolling */
   scroll-snap-type: x mandatory; /* Snap to each section */
   scroll-behavior: smooth;       /* Smooth scroll when snapping */
   height: 100vh;
@@ -743,6 +744,7 @@ Message: ${data.get("message")}
 
 </body>
 </html>
+
 
 
 
