@@ -210,20 +210,52 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 @media(max-width:600px){
 .brand-wrap h3{font-size:1rem;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
-  /* Scroll slideshow container */
+/* Horizontal scroll slideshow container */
 .scroll-slides {
+  display: flex;                 /* Make sections line up horizontally */
+  overflow-x: auto;              /* Horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Snap to each section */
+  scroll-behavior: smooth;       /* Smooth scroll when snapping */
   height: 100vh;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  width: 100vw;
+  /* Hide scrollbar for aesthetics */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scroll-slides::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Each section becomes a slide */
 .scroll-slides section {
-  min-height: 100vh;
-  scroll-snap-align: start;
+  min-width: 100vw;             /* Full viewport width */
+  height: 100vh;                /* Full viewport height */
+  scroll-snap-align: start;     /* Snap point */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease, background-color 0.5s ease;
+  
+  /* Creative touches */
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Optional: different colors for each slide */
+.scroll-slides section:nth-child(odd) {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+
+.scroll-slides section:nth-child(even) {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+/* Optional: subtle hover zoom effect for fun */
+.scroll-slides section:hover {
+  transform: scale(1.05);
 }
 
 </style>
@@ -711,6 +743,7 @@ Message: ${data.get("message")}
 
 </body>
 </html>
+
 
 
 
