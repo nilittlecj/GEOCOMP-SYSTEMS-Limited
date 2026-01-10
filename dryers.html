@@ -243,39 +243,43 @@ footer{background:#ff7400;color:#555;padding:2rem 1.5rem;margin-left: -5px; marg
 <div class="overlay" id="overlay"></div>
 
 <!-- PAGE CONTENT -->
-<section>
-  <h1>Our Air Dryers</h1>
-  <p>High-quality air dryers designed to remove moisture and protect your compressed air systems.</p>
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Air Dryers</h1>
 
-  <div class="dryers-grid">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-    <div class="dryer-card">
-      <img src="dryer1.jpg" alt="Refrigerated Air Dryer">
-      <h3><i class='bx bxs-tornado' style="color:#1E90FF;"></i> Refrigerated Air Dryer</h3>
-      <p>Efficient moisture removal for industrial compressed air.</p>
+      <!-- Refrigerated Air Dryer -->
+      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+        <img src="refrigerated_dryer.jpg" alt="Refrigerated Air Dryer" class="w-32 h-32 object-contain mb-4">
+        <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
+          <i class='bx bxs-snow' style="color:#1E90FF;"></i> Refrigerated Dryer
+        </h3>
+        <p class="text-gray-600">Efficient moisture removal for industrial compressed air systems, keeping your equipment safe and dry.</p>
+      </div>
+
+      <!-- Desiccant Air Dryer -->
+      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+        <img src="desiccant_dryer.jpg" alt="Desiccant Air Dryer" class="w-32 h-32 object-contain mb-4">
+        <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
+          <i class='bx bxs-droplet-half' style="color:#32CD32;"></i> Desiccant Dryer
+        </h3>
+        <p class="text-gray-600">Advanced desiccant technology removes moisture to extremely low dew points for critical applications.</p>
+      </div>
+
+      <!-- Heatless Air Dryer -->
+      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+        <img src="heatless_dryer.jpg" alt="Heatless Air Dryer" class="w-32 h-32 object-contain mb-4">
+        <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
+          <i class='bx bxs-flame' style="color:#FF7400;"></i> Heatless Dryer
+        </h3>
+        <p class="text-gray-600">Reliable, energy-efficient drying for applications requiring extremely dry air without using heat.</p>
+      </div>
+
     </div>
-
-    <div class="dryer-card">
-      <img src="dryer2.jpg" alt="Desiccant Air Dryer">
-      <h3><i class='bx bxs-droplet-half' style="color:#32CD32;"></i> Desiccant Air Dryer</h3>
-      <p>Ultra-dry air for critical and sensitive applications.</p>
-    </div>
-
-    <div class="dryer-card">
-      <img src="dryer3.jpg" alt="Heatless Dryer">
-      <h3><i class='bx bxs-wind' style="color:#00BFFF;"></i> Heatless Dryer</h3>
-      <p>Energy-efficient drying without external heating.</p>
-    </div>
-
-    <div class="dryer-card">
-      <img src="dryer4.jpg" alt="Heated Dryer">
-      <h3><i class='bx bxs-hot' style="color:#FF4500;"></i> Heated Dryer</h3>
-      <p>High-performance drying for demanding environments.</p>
-    </div>
-
   </div>
 </section>
-TER -->
+
 <footer id="contact" style="background: linear-gradient(135deg, #ff7400, #ffb347); color: #fff; padding: 3rem 1.5rem; font-family: 'Inter', sans-serif;">
   <div class="footer-inner" style="max-width:1100px; margin:auto; display:grid; gap:2rem; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));">
 
